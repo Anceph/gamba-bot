@@ -6,7 +6,7 @@ import prettyMilliseconds from "pretty-ms";
 export default {
     data: new SlashCommandBuilder()
         .setName("daily")
-        .setDescription("test lol zaxd"),
+        .setDescription("Get your daily reward"),
     run: async (client, interaction) => {
         const user = interaction.member.user
         const userData = await User.findOne({ id: user.id }) || new User({ id: user.id })

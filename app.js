@@ -20,7 +20,7 @@ process.on('unhandledRejection', (reason, promise) => {
     // Additional error handling or logging can be done here
 });
 
-await mongoose.connect(`mongodb+srv://Anceph:${process.env.MONGODB_PASS}@gamba-bot.dhf0fp5.mongodb.net/?retryWrites=true&w=majority`)
+await mongoose.connect(`mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASS}@${process.env.MONGODB_IP}/?retryWrites=true&w=majority`)
     .then(() => {
         console.log('connection established to the database')
     })

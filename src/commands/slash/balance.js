@@ -5,7 +5,7 @@ import { EmbedBuilder } from "discord.js";
 export default {
     data: new SlashCommandBuilder()
         .setName("balance")
-        .setDescription("test lol zaxd"),
+        .setDescription("Check your balance"),
     run: async (client, interaction) => {
         const user = interaction.member.user
         const userData = await User.findOne({ id: user.id }) || new User({ id: user.id })
