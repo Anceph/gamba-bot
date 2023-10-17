@@ -40,30 +40,48 @@ export default {
             const item = args.slice(1).join(' ');
             console.log(item)
 
-            let url = 'https://csgobackpack.net/api/GetItemsList/v2/'
-            const searchItem = item.replace("'", '&#39');
+            let url = "http://anceph.xyz/prices_v6.json"
             axios.get(url)
-                .then(response => {
+                .then(function (response) {
                     const jsonData = response.data;
-
-                    if (jsonData.items_list && jsonData.items_list[searchItem]) {
-                        const itemInfo = jsonData.items_list[searchItem];
-
-                        const desiredResponse = {
-                            success: true,
-                            currency: jsonData.currency,
-                            timestamp: jsonData.timestamp,
-                            items_list: {
-                                [searchItem]: itemInfo
-                            }
-                        };
-
-                        console.log(desiredResponse.items_list[`${searchItem}`])
+                    const itemData = jsonData["★ Sport Gloves | Pandora's Box (Factory New)"];
+                    console.log(itemData['buff163']);
+                })
+                .catch(function (error) {
+                    if (error.response) {
+                        console.error("Response data:", error.response.data);
+                        console.error("Status code:", error.response.status);
+                    } else if (error.request) {
+                        console.error("No response received");
                     } else {
-                        console.error(`Item "${item}" not found in the response.`);
-                        return null
+                        console.error("Error setting up the request:", error.message);
                     }
-                }).catch(err => { console.log(err) })
+                });
+
+            // let url = 'https://csgobackpack.net/api/GetItemsList/v2/'
+            // const searchItem = item.replace("'", '&#39');
+            // axios.get(url)
+            //     .then(response => {
+            //         const jsonData = response.data;
+
+            //         if (jsonData.items_list && jsonData.items_list[searchItem]) {
+            //             const itemInfo = jsonData.items_list[searchItem];
+
+            //             const desiredResponse = {
+            //                 success: true,
+            //                 currency: jsonData.currency,
+            //                 timestamp: jsonData.timestamp,
+            //                 items_list: {
+            //                     [searchItem]: itemInfo
+            //                 }
+            //             };
+
+            //             console.log(desiredResponse.items_list[`${searchItem}`])
+            //         } else {
+            //             console.error(`Item "${item}" not found in the response.`);
+            //             return null
+            //         }
+            //     }).catch(err => { console.log(err) })
 
             // const result = await getItem(item)
             // console.log(result)

@@ -61,12 +61,13 @@ export default {
             if (itemInfo.price['7_days']) {
                 skinPrice = itemInfo.price['7_days']
             } else {
-                skinPrice = itemInfo.price['all_time']
+                let tempPrice1 = await getPrice(skinName)
+                skinPrice = tempPrice1.price
             }
             let skinIcon = `https://steamcommunity-a.akamaihd.net/economy/image/${itemInfo.icon_url}`
 
             if (quantityToSell > quantity) {
-                errorEmbed.setDescription(`You do not have **${quantityToSell}** ${skinName}`)
+                errorEmbed.setDescription(`You do not have **${quantityToSell}** of ${skinName}`)
                 return interaction.reply({ embeds: [errorEmbed], ephemeral: true })
             }
 
@@ -92,7 +93,7 @@ export default {
 
                 return interaction.reply({ embeds: [embed] })
             }
-            else if (skinPrice.median == undefined) {
+            else if (skinPrice.median == undefined && skinPrice.average) {
                 let tempPrice = skinPrice.average * quantityToSell
                 let fixedPrice = parseFloat(tempPrice)
                 let price = fixedPrice.toFixed(2)
@@ -107,8 +108,23 @@ export default {
                     .setColor('Green')
 
                 return interaction.reply({ embeds: [embed] })
-            } else {
+            } else if (skinPrice.median) {
                 let tempPrice = skinPrice.median * quantityToSell
+                let fixedPrice = parseFloat(tempPrice)
+                let price = fixedPrice.toFixed(2)
+
+                userData.balance += fixedPrice
+                await userData.save()
+
+                const embed = new EmbedBuilder()
+                    .setTitle('Market')
+                    .setDescription(`You just sold your **${quantityToSell} ${skinName}** for **$${price}**`)
+                    .setThumbnail(`${skinIcon}`)
+                    .setColor('Green')
+
+                return interaction.reply({ embeds: [embed] })
+            } else {
+                let tempPrice = skinPrice * quantityToSell
                 let fixedPrice = parseFloat(tempPrice)
                 let price = fixedPrice.toFixed(2)
 

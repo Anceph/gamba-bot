@@ -140,7 +140,8 @@ export default {
         if (itemInfo.price['7_days']) {
             skinPrice = itemInfo.price['7_days']
         } else {
-            skinPrice = itemInfo.price['all_time']
+            let tempPrice = await getPrice(finalSkin)
+            skinPrice = tempPrice.price
         }
         let skinIcon = `https://steamcommunity-a.akamaihd.net/economy/image/${itemInfo.icon_url}`
 
@@ -151,8 +152,15 @@ export default {
                     obtainedSkin.rarity === 'Classified' ? 0x8847ff :
                         obtainedSkin.rarity === 'Covert' ? 0xeb4b4b :
                             obtainedSkin.rarity === 'Special Item' ? 0xffd700 : 'Black')
-            .setDescription(`You got **${finalSkin}**\n Price: $${skinPrice.median}`)
             .setFooter({ text: `Automatically sold if you don't select keep in 10 seconds` })
+
+        if (skinPrice.median) {
+            embed.setDescription(`You got **${finalSkin}**\n Price: $${skinPrice.median}`)
+        } else if (skinPrice.average) {
+            embed.setDescription(`You got **${finalSkin}**\n Price: $${skinPrice.average}`)
+        } else {
+            embed.setDescription(`You got **${finalSkin}**\n Price: $${skinPrice}`)
+        }
 
         if (skinIcon) {
             embed.setThumbnail(`${skinIcon}`)
