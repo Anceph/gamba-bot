@@ -2,7 +2,8 @@ import axios from "axios";
 
 export default async function getItem(item) {
     const url = 'https://csgobackpack.net/api/GetItemsList/v2/'
-    const searchItem = item.replace("'", '&#39');
+    let tempName = item.replace("♥", `\u2665`);
+    const searchItem = tempName.replace("'", '&#39');
     return await axios.get(url)
         .then(response => {
             const jsonData = response.data;
@@ -21,7 +22,6 @@ export default async function getItem(item) {
 
                 return desiredResponse.items_list[`${searchItem}`]
             } else {
-                console.error(`Item "${item}" not found in the response.`);
                 return null
             }
         }).catch(err => { console.log(err) })

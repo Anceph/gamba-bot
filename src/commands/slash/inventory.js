@@ -27,8 +27,8 @@ export default {
             if (!skins[Math.floor(i / 25)]) {
                 await skins.push(new EmbedBuilder().setTitle(`${interaction.user.username}'s Inventory`).setDescription(`**Sell items with /sell [id]**\nID | PRICE | QUANTITY`).setColor(0x5897fc))
             }
-            if (skinsList['case-keys'].skins.includes(`${listOfInventory[i].skin.skin}`)) {
-                let price = skinsList["case-keys"].price
+            if (skinsList['shop']['skins'][`${listOfInventory[i].skin.skin}`]) {
+                let price = skinsList["shop"]['skins'][`${listOfInventory[i].skin.skin}`][0].price
                 worth += price * listOfInventory[i].skin.quantity
                 await skins[Math.floor(i / 25)].addFields({ name: `${listOfInventory[i].id} ($${price}) [${listOfInventory[i].skin.quantity}]`, value: `${listOfInventory[i].skin.skin}`, inline: true })
                 i++

@@ -16,10 +16,14 @@ export default {
                 .setDescription('Select the item you want to buy')
                 .setRequired(true)
                 .addChoices(
-                    { name: 'Chroma Case Key', value: 'Chroma Case Key' },
-                    { name: 'Revolution Case Key', value: 'Revolution Case Key' },
-                    { name: 'Operation Breakout Case Key', value: 'Operation Breakout Case Key' },
-                    { name: 'Operation Hydra Case Key', value: 'Operation Hydra Case Key' },
+                    { name: 'Chroma Case Key ($3.5)', value: 'Chroma Case Key' },
+                    { name: 'Revolution Case Key ($1.5)', value: 'Revolution Case Key' },
+                    { name: 'Operation Breakout Case Key ($7.5)', value: 'Operation Breakout Case Key' },
+                    { name: 'Operation Hydra Case Key ($27)', value: 'Operation Hydra Case Key' },
+                    { name: 'Dreams & Nightmares Case Key ($1.7)', value: 'Dreams & Nightmares Case Key' },
+                    { name: 'Fracture Case Key ($1)', value: 'Fracture Case Key' },
+                    { name: 'Recoil Case Key ($1)', value: 'Recoil Case Key' },
+                    { name: 'Revolver Case Key ($3)', value: 'Revolver Case Key' },
                 )
         )
         .addNumberOption(option =>
@@ -44,56 +48,45 @@ export default {
             })
         } else {
             const errorEmbed = new EmbedBuilder().setTitle('Error').setColor('Red')
-            // const foundKey = dbData.inventory.some((item) => item.skin === keyName)
 
-            skinsList['case-keys']['skins'].forEach(async i => {
-                if (i.includes(`${idOfItem}`)) {
-                    let skinPrice = skinsList['case-keys']['price']
-                    if (userData.balance < skinPrice * quantityOfItem) {
-                        errorEmbed.setDescription(`You need $${skinPrice * quantityOfItem} to buy this item`)
-                        return interaction.reply({ embeds: [errorEmbed] })
+            let skinPrice = skinsList['shop']['skins'][`${idOfItem}`][0].price
+            if (userData.balance < skinPrice * quantityOfItem) {
+                errorEmbed.setDescription(`You need $${skinPrice * quantityOfItem} to buy this item`)
+                return interaction.reply({ embeds: [errorEmbed] })
+            } else {
+                let skinName = idOfItem
+                let skinIcon
+
+                let keyInfo = await getItem(skinName)
+                if (keyInfo) {
+                    skinIcon = `https://steamcommunity-a.akamaihd.net/economy/image/${keyInfo.icon_url}`
+                } else {
+                    let newSkinName = skinName.replace(/\sKey$/, '')
+                    let newKeyInfo = await getItem(newSkinName)
+                    skinIcon = `https://steamcommunity-a.akamaihd.net/economy/image/${newKeyInfo.icon_url}`
+                }
+
+                let existingItem
+                for (let i = 0; i < quantityOfItem; i++) {
+                    existingItem = dbData.inventory.find((i) => i.skin === skinName);
+                    if (existingItem) {
+                        existingItem.quantity += 1
                     } else {
-                        let skinName = i
-                        let skinIcon
-                        if (skinName == 'Revolution Case Key') {
-                            skinIcon = 'https://static.wikia.nocookie.net/cswikia/images/5/54/Csgo-revolution-key.PNG/revision/latest?cb=20230210063204'
-                        } else if (skinName == 'Operation Breakout Weapon Case Key') {
-                            skinIcon = 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXX7gNTPcUxuxpJSXPbQv2S1MDeXkh6LBBOie7rclA2hPCeIm8Rv9juzdjelPOkauuDxTtQ6pdzjOiTrI3w2AGxqBc_Y3ezetHBiL_RiA/360fx360f'
-                        } else {
-                            let itemInfo = await getItem(skinName)
-                            skinIcon = `https://steamcommunity-a.akamaihd.net/economy/image/${itemInfo.icon_url}`
-                        }
-
-                        let existingItem
-                        for (let i = 0; i < quantityOfItem; i++) {
-                            existingItem = dbData.inventory.find((i) => i.skin === skinName);
-                            if (existingItem) {
-                                existingItem.quantity += 1
-                            } else {
-                                await dbData.inventory.push({ skin: skinName, quantity: 1 })
-                            }
-                        }
-                        await dbData.save()
-                        userData.balance -= skinPrice * quantityOfItem
-                        await userData.save()
-
-                        const embed = new EmbedBuilder()
-                            .setTitle('Market')
-                            .setDescription(`You just bought **${quantityOfItem}** **${skinName}** for **$${skinPrice * quantityOfItem}**`)
-                            .setColor('Green')
-
-                        if (skinName == 'Revolution Case Key') {
-                            embed.setThumbnail('https://static.wikia.nocookie.net/cswikia/images/5/54/Csgo-revolution-key.PNG/revision/latest?cb=20230210063204')
-                        } else if (skinName == 'Operation Breakout Weapon Case Key') {
-                            embed.setThumbnail('https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXX7gNTPcUxuxpJSXPbQv2S1MDeXkh6LBBOie7rclA2hPCeIm8Rv9juzdjelPOkauuDxTtQ6pdzjOiTrI3w2AGxqBc_Y3ezetHBiL_RiA/360fx360f')
-                        } else {
-                            embed.setThumbnail(`${skinIcon}`)
-                        }
-
-                        return interaction.reply({ embeds: [embed] })
+                        await dbData.inventory.push({ skin: skinName, quantity: 1 })
                     }
                 }
-            });
+                await dbData.save()
+                userData.balance -= skinPrice * quantityOfItem
+                await userData.save()
+
+                const embed = new EmbedBuilder()
+                    .setTitle('Market')
+                    .setDescription(`You just bought **${quantityOfItem}** **${skinName}** for **$${skinPrice * quantityOfItem}**`)
+                    .setColor('Green')
+                    .setThumbnail(`${skinIcon}`)
+
+                return interaction.reply({ embeds: [embed] })
+            }
         }
     }
 };

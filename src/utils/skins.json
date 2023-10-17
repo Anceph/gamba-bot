@@ -1,13 +1,2409 @@
 {
-    "case-keys": {
-        "name": "Case Keys",
-        "price": 2.5,
-        "skins": [
-            "Chroma Case Key",
-            "Revolution Case Key",
-            "Operation Breakout Case Key",
-            "Operation Hydra Case Key"
-        ]
+    "shop": {
+        "name": "Shop",
+        "skins": {
+            "Chroma Case Key": [
+                {
+                    "name": "Chroma Case Key",
+                    "price": "6"
+                }
+            ],
+            "Revolution Case Key": [
+                {
+                    "name": "Revolution Case Key",
+                    "price": "4"
+                }
+            ],
+            "Operation Breakout Case Key": [
+                {
+                    "name": "Operation Breakout Case Key",
+                    "price": "10"
+                }
+            ],
+            "Operation Hydra Case Key": [
+                {
+                    "name": "Operation Hydra Case Key",
+                    "price": "29.5"
+                }
+            ],
+            "Dreams & Nightmares Case Key": [
+                {
+                    "name": "Dreams & Nightmares Case Key",
+                    "price": "4.2"
+                }
+            ],
+            "Fracture Case Key": [
+                {
+                    "name": "Fracture Case Key",
+                    "price": "3.5"
+                }
+            ],
+            "Recoil Case Key": [
+                {
+                    "name": "Recoil Case Key",
+                    "price": "3.5"
+                }
+            ],
+            "Revolver Case Key": [
+                {
+                    "name": "Revolver Case Key",
+                    "price": "5.5"
+                }
+            ]
+        }
+    },
+    "revolver-case": {
+        "name": "Revolver Case",
+        "icon": "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fRPasw8rsUFJ5KBFZv668FFYwnfKfcG9HvN7iktaOkqD1auLTxD5SvZYgiLvFpo7xjVLh-kdrYWnzcoGLMlhpsyM-5vg/256fx256f",
+        "skins": {
+            "Mil-spec": [
+                {
+                    "name": "SCAR-20 | Outbreak",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "Sawed-Off | Yorick",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "P2000 | Imperial",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested"
+                    ]
+                },
+                {
+                    "name": "AUG | Ricochet",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "Desert Eagle | Corinthian",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn"
+                    ]
+                },
+                {
+                    "name": "R8 Revolver | Crimson Web",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                }
+            ],
+            "Restricted": [
+                {
+                    "name": "Five-SeveN | Retrobution",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "SG 553 | Tiger Moth",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "PP-Bizon | Fuel Rod",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "XM1014 | Teclu Burner",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "Tec-9 | Avalanche",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "Negev | Power Loader",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                }
+            ],
+            "Classified": [
+                {
+                    "name": "P90 | Shapewood",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "G3SG1 | The Executioner",
+                    "conditions": [
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "AK-47 | Point Disarray",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                }
+            ],
+            "Covert": [
+                {
+                    "name": "R8 Revolver | Fade",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn"
+                    ]
+                },
+                {
+                    "name": "M4A4 | Royal Paladin",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                }
+            ],
+            "Special Item": [
+                {
+                    "name": "★ M9 Bayonet | Fade",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear"
+                    ]
+                },
+                {
+                    "name": "★ M9 Bayonet | Scorched",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ M9 Bayonet | Safari Mesh",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ M9 Bayonet | Forest DDPAT",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ M9 Bayonet | Urban Masked",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ M9 Bayonet | Night",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ M9 Bayonet | Stained",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ M9 Bayonet | Boreal Forest",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ M9 Bayonet | Blue Steel",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ M9 Bayonet | Crimson Web",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ M9 Bayonet | Case Hardened",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ M9 Bayonet | Slaughter",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested"
+                    ]
+                },
+                {
+                    "name": "★ M9 Bayonet",
+                    "conditions": []
+                },
+                {
+                    "name": "★ Karambit | Fade",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear"
+                    ]
+                },
+                {
+                    "name": "★ Karambit | Scorched",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Karambit | Forest DDPAT",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Karambit | Urban Masked",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Karambit | Boreal Forest",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Karambit | Safari Mesh",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Karambit | Night",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Karambit | Crimson Web",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Karambit | Blue Steel",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Karambit | Case Hardened",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Karambit | Stained",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Karambit | Slaughter",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested"
+                    ]
+                },
+                {
+                    "name": "★ Karambit",
+                    "conditions": []
+                },
+                {
+                    "name": "★ Gut Knife | Scorched",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Gut Knife | Boreal Forest",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Gut Knife | Urban Masked",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Gut Knife | Night",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Gut Knife | Blue Steel",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Gut Knife | Stained",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Gut Knife",
+                    "conditions": []
+                },
+                {
+                    "name": "★ Gut Knife | Slaughter",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested"
+                    ]
+                },
+                {
+                    "name": "★ Gut Knife | Case Hardened",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Gut Knife | Forest DDPAT",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Gut Knife | Safari Mesh",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Gut Knife | Crimson Web",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Gut Knife | Fade",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear"
+                    ]
+                },
+                {
+                    "name": "★ Flip Knife | Scorched",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Flip Knife | Forest DDPAT",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Flip Knife | Boreal Forest",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Flip Knife | Urban Masked",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Flip Knife | Safari Mesh",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Flip Knife | Night",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Flip Knife | Stained",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Flip Knife | Blue Steel",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Flip Knife | Case Hardened",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Flip Knife | Crimson Web",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Flip Knife",
+                    "conditions": []
+                },
+                {
+                    "name": "★ Flip Knife | Slaughter",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested"
+                    ]
+                },
+                {
+                    "name": "★ Flip Knife | Fade",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear"
+                    ]
+                },
+                {
+                    "name": "★ Bayonet | Safari Mesh",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Bayonet | Scorched",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Bayonet | Urban Masked",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Bayonet | Night",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Bayonet | Boreal Forest",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Bayonet | Forest DDPAT",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Bayonet | Stained",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Bayonet | Blue Steel",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Bayonet | Crimson Web",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Bayonet | Case Hardened",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Bayonet | Slaughter",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested"
+                    ]
+                },
+                {
+                    "name": "★ Bayonet",
+                    "conditions": []
+                },
+                {
+                    "name": "★ Bayonet | Fade",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear"
+                    ]
+                }
+            ]
+        }
+    },
+    "recoil-case": {
+        "name": "Recoil Case",
+        "icon": "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fRPasw8rsUFJ5KBFZv668FFQxnaecIT8Wv9rilYTYkfTyNuiFwmhUvpZz3-2Z9oqg0Vew80NvZzuiJdeLMlhpwFO-XdA/256fx256f",
+        "skins": {
+            "Mil-spec": [
+                {
+                    "name": "Negev | Drop Me",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "MAC-10 | Monkeyflage",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "UMP-45 | Roadblock",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "Galil AR | Destroyer",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "FAMAS | Meow 36",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "Glock-18 | Winterized",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "M4A4 | Poly Mag",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                }
+            ],
+            "Restricted": [
+                {
+                    "name": "M249 | Downtown",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "P90 | Vent Rush",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "R8 Revolver | Crazy 8",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "SG 553 | Dragon Tech",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "Dual Berettas | Flora Carnivora",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                }
+            ],
+            "Classified": [
+                {
+                    "name": "P250 | Visions",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "Sawed-Off | Kiss♥Love",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "AK-47 | Ice Coaled",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                }
+            ],
+            "Covert": [
+                {
+                    "name": "AWP | Chromatic Aberration",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "USP-S | Printstream",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                }
+            ],
+            "Special Item": [
+                {
+                    "name": "★ Sport Gloves | Big Game",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Sport Gloves | Nocts",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Sport Gloves | Scarlet Shamagh",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Sport Gloves | Slingshot",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Specialist Gloves | Lt. Commander",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Specialist Gloves | Field Agent",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Specialist Gloves | Marble Fade",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Specialist Gloves | Tiger Strike",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Moto Gloves | 3rd Commando Company",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Moto Gloves | Finish Line",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Moto Gloves | Blood Pressure",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Moto Gloves | Smoke Out",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Hand Wraps | Desert Shamagh",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Hand Wraps | Constrictor",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Hand Wraps | Giraffe",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Hand Wraps | CAUTION!",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Driver Gloves | Queen Jaguar",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Driver Gloves | Black Tie",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Driver Gloves | Rezan the Red",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Driver Gloves | Snow Leopard",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Broken Fang Gloves | Jade",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Broken Fang Gloves | Unhinged",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Broken Fang Gloves | Needle Point",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Broken Fang Gloves | Yellow-banded",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                }
+            ]
+        }
+    },
+    "fracture-case": {
+        "name": "Fracture Case",
+        "icon": "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fRPasw8rsUFJ5KBFZv668FFU2nfGaJG0btN2wwYHfxa-hY-uFxj4Dv50nj7uXpI7w3AewrhBpMWH6d9CLMlhpEbAe-Zk/256fx256f",
+        "skins": {
+            "Mil-spec": [
+                {
+                    "name": "SG 553 | Ol' Rusty",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "Negev | Ultralight",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "P250 | Cassette",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "P90 | Freight",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "PP-Bizon | Runic",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "P2000 | Gnarled",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "SSG 08 | Mainframe 001",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                }
+            ],
+            "Restricted": [
+                {
+                    "name": "MP5-SD | Kitbash",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "MAC-10 | Allure",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "Galil AR | Connexion",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "MAG-7 | Monster Call",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "Tec-9 | Brother",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                }
+            ],
+            "Classified": [
+                {
+                    "name": "XM1014 | Entombed",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "Glock-18 | Vogue",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "M4A4 | Tooth Fairy",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                }
+            ],
+            "Covert": [
+                {
+                    "name": "AK-47 | Legion of Anubis",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "Desert Eagle | Printstream",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                }
+            ],
+            "Special Item": [
+                {
+                    "name": "★ Paracord Knife | Safari Mesh",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Paracord Knife | Urban Masked",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Paracord Knife | Forest DDPAT",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Paracord Knife | Boreal Forest",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Paracord Knife | Night Stripe",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Paracord Knife | Stained",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Paracord Knife | Blue Steel",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Paracord Knife | Scorched",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Paracord Knife",
+                    "conditions": []
+                },
+                {
+                    "name": "★ Paracord Knife | Crimson Web",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Paracord Knife | Slaughter",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested"
+                    ]
+                },
+                {
+                    "name": "★ Paracord Knife | Case Hardened",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Paracord Knife | Fade",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear"
+                    ]
+                },
+                {
+                    "name": "★ Nomad Knife | Safari Mesh",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Nomad Knife | Scorched",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Nomad Knife | Night Stripe",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Nomad Knife | Forest DDPAT",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Nomad Knife | Boreal Forest",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Nomad Knife | Stained",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Nomad Knife | Urban Masked",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Nomad Knife | Blue Steel",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Nomad Knife | Case Hardened",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Nomad Knife | Crimson Web",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Nomad Knife",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Nomad Knife | Slaughter",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested"
+                    ]
+                },
+                {
+                    "name": "★ Nomad Knife | Fade",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear"
+                    ]
+                },
+                {
+                    "name": "★ Survival Knife | Urban Masked",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Survival Knife | Scorched",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Survival Knife | Boreal Forest",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Survival Knife | Safari Mesh",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Survival Knife | Forest DDPAT",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Survival Knife | Stained",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Survival Knife | Night Stripe",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Survival Knife | Blue Steel",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Survival Knife",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Survival Knife | Case Hardened",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Survival Knife | Crimson Web",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Survival Knife | Slaughter",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested"
+                    ]
+                },
+                {
+                    "name": "★ Survival Knife | Fade",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear"
+                    ]
+                },
+                {
+                    "name": "★ Skeleton Knife | Fade",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear"
+                    ]
+                },
+                {
+                    "name": "★ Skeleton Knife | Boreal Forest",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Skeleton Knife | Safari Mesh",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Skeleton Knife | Urban Masked",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Skeleton Knife | Forest DDPAT",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Skeleton Knife | Scorched",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Skeleton Knife | Night Stripe",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Skeleton Knife | Stained",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Skeleton Knife | Blue Steel",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Skeleton Knife | Case Hardened",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Skeleton Knife",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Skeleton Knife | Crimson Web",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Skeleton Knife | Slaughter",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested"
+                    ]
+                }
+            ]
+        }
+    },
+    "dreams-and-nightmares-case": {
+        "name": "Dreams & Nightmares Case",
+        "icon": "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fRPasw8rsUFJ5KBFZv668FFQwnfCcJmxDv9rhwIHZwqP3a-uGwz9Xv8F0j-qQrI3xiVLkrxVuZW-mJoWLMlhpWhFkc9M/256fx256f",
+        "skins": {
+            "Mil-spec": [
+                {
+                    "name": "MAG-7 | Foresight",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "SCAR-20 | Poultrygeist",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "Sawed-Off | Spirit Board",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "P2000 | Lifted Spirits",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "MAC-10 | Ensnared",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "MP5-SD | Necro Jr.",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "Five-SeveN | Scrawl",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                }
+            ],
+            "Restricted": [
+                {
+                    "name": "G3SG1 | Dream Glade",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "XM1014 | Zombie Offensive",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "PP-Bizon | Space Cat",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "USP-S | Ticket to Hell",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "M4A1-S | Night Terror",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                }
+            ],
+            "Classified": [
+                {
+                    "name": "MP7 | Abyssal Apparition",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "FAMAS | Rapid Eye Movement",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "Dual Berettas | Melondrama",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                }
+            ],
+            "Covert": [
+                {
+                    "name": "MP9 | Starlight Protector",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "AK-47 | Nightwish",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                }
+            ],
+            "Special Item": [
+                {
+                    "name": "★ Shadow Daggers | Black Laminate",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Shadow Daggers | Freehand",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Shadow Daggers | Bright Water",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Shadow Daggers | Lore",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Shadow Daggers | Autotronic",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Shadow Daggers | Gamma Doppler",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear"
+                    ]
+                },
+                {
+                    "name": "★ Huntsman Knife | Bright Water",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Huntsman Knife | Freehand",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Huntsman Knife | Black Laminate",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Huntsman Knife | Autotronic",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Huntsman Knife | Lore",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Huntsman Knife | Gamma Doppler",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear"
+                    ]
+                },
+                {
+                    "name": "★ Falchion Knife | Bright Water",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Falchion Knife | Black Laminate",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Falchion Knife | Freehand",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Falchion Knife | Autotronic",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Falchion Knife | Lore",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Falchion Knife | Gamma Doppler",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear"
+                    ]
+                },
+                {
+                    "name": "★ Butterfly Knife | Gamma Doppler",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear"
+                    ]
+                },
+                {
+                    "name": "★ Butterfly Knife | Freehand",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Butterfly Knife | Bright Water",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Butterfly Knife | Black Laminate",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Butterfly Knife | Lore",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Butterfly Knife | Autotronic",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Bowie Knife | Bright Water",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Bowie Knife | Freehand",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Bowie Knife | Black Laminate",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Bowie Knife | Autotronic",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Bowie Knife | Lore",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear",
+                        "Field-Tested",
+                        "Well-Worn",
+                        "Battle-Scarred"
+                    ]
+                },
+                {
+                    "name": "★ Bowie Knife | Gamma Doppler",
+                    "conditions": [
+                        "Factory New",
+                        "Minimal Wear"
+                    ]
+                }
+            ]
+        }
     },
     "operation-hydra-case": {
         "name": "Operation Hydra Case",
@@ -1132,7 +3528,7 @@
         "icon": "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fRPasw8rsUFJ5KBFZv668FFEuh_KQJTtEuI63xIXbxqOtauyClTMEsJV1jruS89T3iQKx_BBqa2j3JpjVLFH1xpp0EQ/256fx256f",
         "skins": {
             "Mil-spec": [
-                { 
+                {
                     "name": "SCAR-20 | Grotto",
                     "conditions": [
                         "Factory New",
@@ -1142,7 +3538,7 @@
                         "Battle-Scarred"
                     ]
                 },
-                { 
+                {
                     "name": "XM1014 | Quicksilver",
                     "conditions": [
                         "Factory New",
@@ -1152,7 +3548,7 @@
                         "Battle-Scarred"
                     ]
                 },
-                { 
+                {
                     "name": "M249 | System Lock",
                     "conditions": [
                         "Factory New",
@@ -1162,7 +3558,7 @@
                         "Battle-Scarred"
                     ]
                 },
-                { 
+                {
                     "name": "MP9 | Deadly Poison",
                     "conditions": [
                         "Factory New",
@@ -1172,7 +3568,7 @@
                         "Battle-Scarred"
                     ]
                 },
-                { 
+                {
                     "name": "Glock-18 | Catacombs",
                     "conditions": [
                         "Factory New",
@@ -1184,7 +3580,7 @@
                 }
             ],
             "Restricted": [
-                { 
+                {
                     "name": "Sawed-Off | Serenity",
                     "conditions": [
                         "Factory New",
@@ -1194,7 +3590,7 @@
                         "Battle-Scarred"
                     ]
                 },
-                { 
+                {
                     "name": "MAC-10 | Malachite",
                     "conditions": [
                         "Factory New",
@@ -1204,7 +3600,7 @@
                         "Battle-Scarred"
                     ]
                 },
-                { 
+                {
                     "name": "Dual Berettas | Urban Shock",
                     "conditions": [
                         "Factory New",
@@ -1214,7 +3610,7 @@
                         "Battle-Scarred"
                     ]
                 },
-                { 
+                {
                     "name": "Desert Eagle | Naga",
                     "conditions": [
                         "Factory New",
@@ -1226,7 +3622,7 @@
                 }
             ],
             "Classified": [
-                { 
+                {
                     "name": "P250 | Muertos",
                     "conditions": [
                         "Factory New",
@@ -1236,7 +3632,7 @@
                         "Battle-Scarred"
                     ]
                 },
-                { 
+                {
                     "name": "M4A4 | 龍王 (Dragon King)",
                     "conditions": [
                         "Factory New",
@@ -1246,7 +3642,7 @@
                         "Battle-Scarred"
                     ]
                 },
-                { 
+                {
                     "name": "AK-47 | Cartel",
                     "conditions": [
                         "Factory New",
@@ -1258,14 +3654,14 @@
                 }
             ],
             "Covert": [
-                { 
+                {
                     "name": "AWP | Man-o'-war",
                     "conditions": [
                         "Minimal Wear",
                         "Field-Tested"
                     ]
                 },
-                { 
+                {
                     "name": "Galil AR | Chatterbox",
                     "conditions": [
                         "Field-Tested",
@@ -1275,7 +3671,7 @@
                 }
             ],
             "Special Item": [
-                { 
+                {
                     "name": "★ Gut Knife | Rust Coat",
                     "conditions": [
                         "Well-Worn",

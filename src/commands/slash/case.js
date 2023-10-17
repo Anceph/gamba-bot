@@ -29,6 +29,10 @@ export default {
                     { name: 'Revolution Case', value: 'revolution-case' },
                     { name: 'Operation Breakout Weapon Case', value: 'operation-breakout-weapon-case' },
                     { name: 'Operation Hydra Case', value: 'operation-hydra-case' },
+                    { name: 'Dreams & Nightmares Case', value: 'dreams-and-nightmares-case' },
+                    { name: 'Fracture Case', value: 'fracture-case' },
+                    { name: 'Recoil Case', value: 'recoil-case' },
+                    { name: 'Revolver Case', value: 'revolver-case' },
                 )),
     run: async (client, interaction) => {
         const caseName = interaction.options.getString('case')
@@ -41,13 +45,12 @@ export default {
 
         let keyIcon
 
-        if (skinsData[caseName]['name'] == 'Revolution Case') {
-            keyIcon = 'https://static.wikia.nocookie.net/cswikia/images/5/54/Csgo-revolution-key.PNG/revision/latest?cb=20230210063204'
-        } else if (skinsData[caseName]['name'] == 'Operation Breakout Weapon Case') {
-            keyIcon = 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXX7gNTPcUxuxpJSXPbQv2S1MDeXkh6LBBOie7rclA2hPCeIm8Rv9juzdjelPOkauuDxTtQ6pdzjOiTrI3w2AGxqBc_Y3ezetHBiL_RiA/360fx360f'
-        } else {
-            let keyInfo = await getItem(`${skinsData[caseName]['name']} Key`)
+        let keyInfo = await getItem(`${skinsData[caseName]['name']} Key`)
+        if (keyInfo) {
             keyIcon = `https://steamcommunity-a.akamaihd.net/economy/image/${keyInfo.icon_url}`
+        } else {
+            let newKeyInfo = await getItem(`${skinsData[caseName]['name']}`)
+            keyIcon = `https://steamcommunity-a.akamaihd.net/economy/image/${newKeyInfo.icon_url}`
         }
 
         const user = interaction.member.user
@@ -69,14 +72,7 @@ export default {
             .setTitle('Error')
             .setColor('Red')
             .setDescription(`You need a **${skinsData[caseName]['name']} Key** to open this case!`)
-
-        if (skinsData[caseName]['name'] == 'Revolution Case') {
-            errorEmbed.setThumbnail('https://static.wikia.nocookie.net/cswikia/images/5/54/Csgo-revolution-key.PNG/revision/latest?cb=20230210063204')
-        } else if (skinsData[caseName]['name'] == 'Operation Breakout Weapon Case') {
-            errorEmbed.setThumbnail('https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXX7gNTPcUxuxpJSXPbQv2S1MDeXkh6LBBOie7rclA2hPCeIm8Rv9juzdjelPOkauuDxTtQ6pdzjOiTrI3w2AGxqBc_Y3ezetHBiL_RiA/360fx360f')
-        } else {
-            errorEmbed.setThumbnail(`${keyIcon}`)
-        }
+            .setThumbnail(`${keyIcon}`)
 
         const infoEmbed = new EmbedBuilder()
             .setTitle('Info')

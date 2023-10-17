@@ -49,7 +49,7 @@ export default {
                 errorEmbed.setDescription(`Couldn't find any skins in your inventory with the given ID.`)
                 return interaction.reply({ embeds: [errorEmbed], ephemeral: true })
             }
-            if (skinsList['case-keys'].skins != undefined && skinsList["case-keys"].skins.includes(inventoryItem)) {
+            if (skinsList['shop']['skins'] != undefined && skinsList["shop"]['skins'][`${inventoryItem}`]) {
                 errorEmbed.setDescription(`Sorry, but you can't sell your case keys.`)
                 return interaction.reply({ embeds: [errorEmbed], ephemeral: true })
             }
