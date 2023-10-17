@@ -19,7 +19,7 @@ export default {
             errorEmbed.setDescription(`Couldn't find any skin in your inventory :(`)
             return interaction.editReply({ content: '', embeds: [errorEmbed] })
         }
-        
+
         let i = 0
         let worth = 0
         for (i in listOfInventory) {
@@ -33,8 +33,12 @@ export default {
                 i++
             } else {
                 let itemInfo = await getItem(listOfInventory[i].skin.skin)
-                let price = itemInfo.price['7_days']
-                // console.log(itemInfo.price['7_days'].median)
+                let skinPrice
+                if (itemInfo.price['7_days']) {
+                    skinPrice = itemInfo.price['7_days']
+                } else {
+                    skinPrice = itemInfo.price['all_time']
+                }
                 if (price.median == undefined) {
                     let average_price = price.average * listOfInventory[i].skin.quantity
                     worth += parseFloat(average_price)
@@ -45,7 +49,7 @@ export default {
                     await skins[Math.floor(i / 25)].addFields({ name: `${listOfInventory[i].id} ($${median_price.toFixed(2)}) [${listOfInventory[i].skin.quantity}]`, value: `${listOfInventory[i].skin.skin}`, inline: true })
                 }
                 i++
-            }   
+            }
         }
 
         if (skins.length == 0) {

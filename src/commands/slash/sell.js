@@ -57,7 +57,12 @@ export default {
             let skinName = dbData.inventory[idOfItem].skin
             let quantity = dbData.inventory[idOfItem].quantity
             let itemInfo = await getItem(`${dbData.inventory[idOfItem].skin}`)
-            let skinPrice = itemInfo.price['7_days']
+            let skinPrice
+            if (itemInfo.price['7_days']) {
+                skinPrice = itemInfo.price['7_days']
+            } else {
+                skinPrice = itemInfo.price['all_time']
+            }
             let skinIcon = `https://steamcommunity-a.akamaihd.net/economy/image/${itemInfo.icon_url}`
 
             if (quantityToSell > quantity) {

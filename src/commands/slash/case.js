@@ -132,11 +132,16 @@ export default {
 
             await dbData.save();
         }
-        
+
         let obtainedSkin = getRandomSkin(Skins)
         const finalSkin = `${obtainedSkin.skin} (${obtainedSkin.condition})`
         let itemInfo = await getItem(finalSkin)
-        let skinPrice = itemInfo.price['7_days']
+        let skinPrice
+        if (itemInfo.price['7_days']) {
+            skinPrice = itemInfo.price['7_days']
+        } else {
+            skinPrice = itemInfo.price['all_time']
+        }
         let skinIcon = `https://steamcommunity-a.akamaihd.net/economy/image/${itemInfo.icon_url}`
 
         const embed = new EmbedBuilder()
