@@ -16,14 +16,14 @@ export default {
                 .setDescription('Select the item you want to buy')
                 .setRequired(true)
                 .addChoices(
-                    { name: 'Chroma Case Key ($3.5)', value: 'Chroma Case Key' },
-                    { name: 'Revolution Case Key ($1.5)', value: 'Revolution Case Key' },
-                    { name: 'Operation Breakout Case Key ($7.5)', value: 'Operation Breakout Case Key' },
-                    { name: 'Operation Hydra Case Key ($27)', value: 'Operation Hydra Case Key' },
-                    { name: 'Dreams & Nightmares Case Key ($1.7)', value: 'Dreams & Nightmares Case Key' },
-                    { name: 'Fracture Case Key ($1)', value: 'Fracture Case Key' },
-                    { name: 'Recoil Case Key ($1)', value: 'Recoil Case Key' },
-                    { name: 'Revolver Case Key ($3)', value: 'Revolver Case Key' },
+                    { name: 'Chroma Case Key ($6)', value: 'Chroma Case Key' },
+                    { name: 'Revolution Case Key ($4)', value: 'Revolution Case Key' },
+                    { name: 'Operation Breakout Case Key ($10)', value: 'Operation Breakout Case Key' },
+                    { name: 'Operation Hydra Case Key ($29.5)', value: 'Operation Hydra Case Key' },
+                    { name: 'Dreams & Nightmares Case Key ($4.2)', value: 'Dreams & Nightmares Case Key' },
+                    { name: 'Fracture Case Key ($3.5)', value: 'Fracture Case Key' },
+                    { name: 'Recoil Case Key ($3.5)', value: 'Recoil Case Key' },
+                    { name: 'Revolver Case Key ($5.5)', value: 'Revolver Case Key' },
                 )
         )
         .addNumberOption(option =>
