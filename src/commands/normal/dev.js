@@ -41,35 +41,29 @@ export default {
             console.log(item)
 
             let url = 'https://csgobackpack.net/api/GetItemsList/v2/'
+            const searchItem = item.replace("'", '&#39');
             axios.get(url)
                 .then(response => {
                     const jsonData = response.data;
 
-                    // Check if the item exists in the response
-                    if (jsonData.items_list && jsonData.items_list[item]) {
-                        const itemInfo = jsonData.items_list[item];
+                    if (jsonData.items_list && jsonData.items_list[searchItem]) {
+                        const itemInfo = jsonData.items_list[searchItem];
 
-                        // Create a new object with the desired structure
                         const desiredResponse = {
                             success: true,
                             currency: jsonData.currency,
                             timestamp: jsonData.timestamp,
                             items_list: {
-                                [item]: itemInfo
+                                [searchItem]: itemInfo
                             }
                         };
 
-                        // console.log(JSON.stringify(desiredResponse, null, 2));
-                        let prettier = JSON.stringify(desiredResponse, null, 2)
-                        message.reply(`${prettier}`)
-                        console.log(desiredResponse)
+                        console.log(desiredResponse.items_list[`${searchItem}`])
                     } else {
                         console.error(`Item "${item}" not found in the response.`);
+                        return null
                     }
-                })
-                .catch(err => {
-                    console.log(err)
-                })
+                }).catch(err => { console.log(err) })
 
             // const result = await getItem(item)
             // console.log(result)
