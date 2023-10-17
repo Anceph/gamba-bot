@@ -6,6 +6,7 @@ import inventory from '../../utils/db/inventory.js'
 import User from '../../utils/db/users.js'
 import prettyMilliseconds from "pretty-ms";
 import getItem from '../../utils/functions/getItem.js'
+import getPrice from "../../utils/functions/getPrice.js";
 
 const probabilities = {
     "Mil-spec": 0.7992327,
@@ -133,7 +134,7 @@ export default {
         const finalSkin = `${obtainedSkin.skin} (${obtainedSkin.condition})`
         let itemInfo = await getItem(finalSkin)
         let skinPrice
-        if (itemInfo.price['7_days']) {
+        if (itemInfo.price && itemInfo.price['7_days']) {
             skinPrice = itemInfo.price['7_days']
         } else {
             let tempPrice = await getPrice(finalSkin)

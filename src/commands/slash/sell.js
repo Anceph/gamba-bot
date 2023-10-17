@@ -5,6 +5,7 @@ import inventory from '../../utils/db/inventory.js'
 import { SteamMarketParser, Currency } from 'steam-market-parser'
 import skinsList from '../../utils/skins.json' assert { type: "json" }
 import getItem from "../../utils/functions/getItem.js";
+import getPrice from "../../utils/functions/getPrice.js";
 
 export default {
     data: new SlashCommandBuilder()
@@ -44,12 +45,11 @@ export default {
             })
         } else {
             const inventoryItem = dbData.inventory[idOfItem]
-
             if (!inventoryItem) {
                 errorEmbed.setDescription(`Couldn't find any skins in your inventory with the given ID.`)
                 return interaction.reply({ embeds: [errorEmbed], ephemeral: true })
             }
-            if (skinsList['shop']['skins'] != undefined && skinsList["shop"]['skins'][`${inventoryItem}`]) {
+            if (skinsList['shop']['skins'] != undefined && skinsList["shop"]['skins'][`${inventoryItem.skin}`]) {
                 errorEmbed.setDescription(`Sorry, but you can't sell your case keys.`)
                 return interaction.reply({ embeds: [errorEmbed], ephemeral: true })
             }
@@ -58,7 +58,7 @@ export default {
             let quantity = dbData.inventory[idOfItem].quantity
             let itemInfo = await getItem(`${dbData.inventory[idOfItem].skin}`)
             let skinPrice
-            if (itemInfo.price['7_days']) {
+            if (itemInfo.price && itemInfo.price['7_days']) {
                 skinPrice = itemInfo.price['7_days']
             } else {
                 let tempPrice1 = await getPrice(skinName)
