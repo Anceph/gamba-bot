@@ -60,7 +60,8 @@ export default {
                         } else if (skinName == 'Operation Breakout Weapon Case Key') {
                             skinIcon = 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXX7gNTPcUxuxpJSXPbQv2S1MDeXkh6LBBOie7rclA2hPCeIm8Rv9juzdjelPOkauuDxTtQ6pdzjOiTrI3w2AGxqBc_Y3ezetHBiL_RiA/360fx360f'
                         } else {
-                            skinIcon = await getItem(skinName)
+                            let itemInfo = await getItem(skinName)
+                            skinIcon = `https://steamcommunity-a.akamaihd.net/economy/image/${itemInfo.icon_url}`
                         }
 
                         let existingItem
@@ -86,7 +87,7 @@ export default {
                         } else if (skinName == 'Operation Breakout Weapon Case Key') {
                             embed.setThumbnail('https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXX7gNTPcUxuxpJSXPbQv2S1MDeXkh6LBBOie7rclA2hPCeIm8Rv9juzdjelPOkauuDxTtQ6pdzjOiTrI3w2AGxqBc_Y3ezetHBiL_RiA/360fx360f')
                         } else {
-                            embed.setThumbnail(`${skinIcon.icon}`)
+                            embed.setThumbnail(`${skinIcon}`)
                         }
 
                         return interaction.reply({ embeds: [embed] })

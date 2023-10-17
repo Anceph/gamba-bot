@@ -46,7 +46,8 @@ export default {
         } else if (skinsData[caseName]['name'] == 'Operation Breakout Weapon Case') {
             keyIcon = 'https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXX7gNTPcUxuxpJSXPbQv2S1MDeXkh6LBBOie7rclA2hPCeIm8Rv9juzdjelPOkauuDxTtQ6pdzjOiTrI3w2AGxqBc_Y3ezetHBiL_RiA/360fx360f'
         } else {
-            keyIcon = await getItem(`${skinsData[caseName]['name']} Key`)
+            let keyInfo = await getItem(`${skinsData[caseName]['name']} Key`)
+            keyIcon = `https://steamcommunity-a.akamaihd.net/economy/image/${keyInfo.icon_url}`
         }
 
         const user = interaction.member.user
@@ -74,7 +75,7 @@ export default {
         } else if (skinsData[caseName]['name'] == 'Operation Breakout Weapon Case') {
             errorEmbed.setThumbnail('https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXX7gNTPcUxuxpJSXPbQv2S1MDeXkh6LBBOie7rclA2hPCeIm8Rv9juzdjelPOkauuDxTtQ6pdzjOiTrI3w2AGxqBc_Y3ezetHBiL_RiA/360fx360f')
         } else {
-            errorEmbed.setThumbnail(`${keyIcon.icon}`)
+            errorEmbed.setThumbnail(`${keyIcon}`)
         }
 
         const infoEmbed = new EmbedBuilder()
@@ -134,8 +135,9 @@ export default {
         
         let obtainedSkin = getRandomSkin(Skins)
         const finalSkin = `${obtainedSkin.skin} (${obtainedSkin.condition})`
-        let skinPrice = await getItem(finalSkin)
-        let skinIcon = await getItem(finalSkin)
+        let itemInfo = await getItem(finalSkin)
+        let skinPrice = itemInfo.price['7_days']
+        let skinIcon = `https://steamcommunity-a.akamaihd.net/economy/image/${itemInfo.icon_url}`
 
         const embed = new EmbedBuilder()
             .setTitle(`${skinsData[caseName].name}`)
@@ -144,11 +146,11 @@ export default {
                     obtainedSkin.rarity === 'Classified' ? 0x8847ff :
                         obtainedSkin.rarity === 'Covert' ? 0xeb4b4b :
                             obtainedSkin.rarity === 'Special Item' ? 0xffd700 : 'Black')
-            .setDescription(`You got **${finalSkin}**\n Price: $${skinPrice.median_price}`)
+            .setDescription(`You got **${finalSkin}**\n Price: $${skinPrice.median}`)
             .setFooter({ text: `Automatically sold if you don't select keep in 10 seconds` })
 
-        if (skinIcon.icon) {
-            embed.setThumbnail(`${skinIcon.icon}`)
+        if (skinIcon) {
+            embed.setThumbnail(`${skinIcon}`)
         } else {
             embed.setThumbnail(`https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png`)
         }
@@ -201,7 +203,7 @@ export default {
                         });
                     }
                 } else if (confirmation.customId === 'sell') {
-                    let tempPrice = skinPrice.median_price
+                    let tempPrice = skinPrice.median
                     let fixedPrice = parseFloat(tempPrice)
 
                     userData.balance += fixedPrice
@@ -210,7 +212,7 @@ export default {
                     await confirmation.update({ content: 'Sold', components: [] });
                 }
             } catch (err) {
-                let tempPrice = skinPrice.median_price
+                let tempPrice = skinPrice.median
                 let fixedPrice = parseFloat(tempPrice)
 
                 userData.balance += fixedPrice

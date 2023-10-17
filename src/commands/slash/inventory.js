@@ -32,13 +32,15 @@ export default {
                 await skins[Math.floor(i / 25)].addFields({ name: `${listOfInventory[i].id} ($${price}) [${listOfInventory[i].skin.quantity}]`, value: `${listOfInventory[i].skin.skin}`, inline: true })
                 i++
             } else {
-                let price = await getItem(listOfInventory[i].skin.skin)
-                if (price.median_price == undefined) {
-                    let average_price = price.average_price * listOfInventory[i].skin.quantity
+                let itemInfo = await getItem(listOfInventory[i].skin.skin)
+                let price = itemInfo.price['7_days']
+                // console.log(itemInfo.price['7_days'].median)
+                if (price.median == undefined) {
+                    let average_price = price.average * listOfInventory[i].skin.quantity
                     worth += parseFloat(average_price)
                     await skins[Math.floor(i / 25)].addFields({ name: `${listOfInventory[i].id} ($${average_price.toFixed(2)}) [${listOfInventory[i].skin.quantity}]`, value: `${listOfInventory[i].skin.skin}`, inline: true })
                 } else {
-                    let median_price = price.median_price * listOfInventory[i].skin.quantity
+                    let median_price = price.median * listOfInventory[i].skin.quantity
                     worth += parseFloat(median_price)
                     await skins[Math.floor(i / 25)].addFields({ name: `${listOfInventory[i].id} ($${median_price.toFixed(2)}) [${listOfInventory[i].skin.quantity}]`, value: `${listOfInventory[i].skin.skin}`, inline: true })
                 }

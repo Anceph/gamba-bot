@@ -28,17 +28,56 @@ export default {
     run: async (client, message, args) => {
         if (message.author.id != 416826079563612181) return
 
+        if (args[0] == "test2") {
+            const item = args.slice(1).join(' ');
+            console.log(item)
+
+            let naber = await getItem(item)
+            console.log(naber)
+        }
+
         if (args[0] == "test") {
             const item = args.slice(1).join(' ');
             console.log(item)
 
-            const result = await getItem(item)
-            console.log(result)
-            if (result.icon) {
-                return console.log('var')
-            } else {
-                return console.log('yok')
-            }
+            let url = 'https://csgobackpack.net/api/GetItemsList/v2/'
+            axios.get(url)
+                .then(response => {
+                    const jsonData = response.data;
+
+                    // Check if the item exists in the response
+                    if (jsonData.items_list && jsonData.items_list[item]) {
+                        const itemInfo = jsonData.items_list[item];
+
+                        // Create a new object with the desired structure
+                        const desiredResponse = {
+                            success: true,
+                            currency: jsonData.currency,
+                            timestamp: jsonData.timestamp,
+                            items_list: {
+                                [item]: itemInfo
+                            }
+                        };
+
+                        // console.log(JSON.stringify(desiredResponse, null, 2));
+                        let prettier = JSON.stringify(desiredResponse, null, 2)
+                        message.reply(`${prettier}`)
+                        console.log(desiredResponse)
+                    } else {
+                        console.error(`Item "${item}" not found in the response.`);
+                    }
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+
+            // const result = await getItem(item)
+            // console.log(result)
+            // if (result.icon) {
+            //     return console.log('var')
+            // } else {
+            //     return console.log('yok')
+            // }
 
             // const price = await getItemPrice(item)
             // console.log(price)
@@ -78,7 +117,7 @@ export default {
                 } else {
                     await dbData.inventory.push({ skin: item, quantity: args[2] })
                 }
-                
+
                 await dbData.save()
                 return message.reply(`Added ${item} to inventories.${args[1]}.inventory`)
             }
