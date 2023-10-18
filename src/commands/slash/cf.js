@@ -63,7 +63,7 @@ export default {
                 .setTitle(`Coin Flip`)
 
             if (result == "t" && tempChoice == "t-coin") {
-                embed2.setDescription(`You chose **${coinChoice}** and you won **${winPrice}!**`)
+                embed2.setDescription(`You chose **${coinChoice}** and won **${winPrice}!**`)
                 embed2.setColor('Yellow')
                 embed2.setImage('https://raw.githubusercontent.com/Anceph/Ancephxyz/main/t.png')
 
@@ -71,14 +71,14 @@ export default {
                 await userData.save()
                 return interaction.editReply({ embeds: [embed2] })
             } else if (result == "t" && tempChoice == "ct-coin") {
-                embed2.setDescription(`You chose **${coinChoice}** and you lost your **${tempBet}**`)
+                embed2.setDescription(`You chose **${coinChoice}** and lost your **${tempBet}**`)
                 embed2.setColor('Yellow')
                 embed2.setImage('https://raw.githubusercontent.com/Anceph/Ancephxyz/main/t.png')
 
                 await userData.save()
                 return interaction.editReply({ embeds: [embed2] })
             } else if (result == "ct" && tempChoice == "ct-coin") {
-                embed2.setDescription(`You chose **${coinChoice}** and you won **${winPrice}!**`)
+                embed2.setDescription(`You chose **${coinChoice}** and won **${winPrice}!**`)
                 embed2.setColor('Blue')
                 embed2.setImage('https://raw.githubusercontent.com/Anceph/Ancephxyz/main/ct.png')
 
@@ -86,7 +86,7 @@ export default {
                 await userData.save()
                 return interaction.editReply({ embeds: [embed2] })
             } else if (result == "ct" && tempChoice == "t-coin") {
-                embed2.setDescription(`You chose **${coinChoice}** and you lost your **${tempBet}**`)
+                embed2.setDescription(`You chose **${coinChoice}** and lost your **${tempBet}**`)
                 embed2.setColor('Blue')
                 embed2.setImage('https://raw.githubusercontent.com/Anceph/Ancephxyz/main/ct.png')
 
