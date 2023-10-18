@@ -131,7 +131,7 @@ export default {
                 }
 
                 await dbData.save()
-                return message.reply(`Added ${item} to inventories.${args[1]}.inventory`)
+                return message.reply(`Added ${args[2]} ${item} to inventories.${args[1]}.inventory`)
             }
         }
 
