@@ -4,6 +4,7 @@ import { EmbedBuilder } from "discord.js";
 import skinsList from '../../utils/skins.json' assert { type: "json" }
 import getItem from '../../utils/functions/getItem.js'
 import getPrice from "../../utils/functions/getPrice.js";
+import User from '../../utils/db/users.js'
 
 export default {
     data: new SlashCommandBuilder()
@@ -11,6 +12,8 @@ export default {
         .setDescription("Check out your Inventory"),
     run: async (client, interaction) => {
         await interaction.reply(`Calculating prices...`)
+        const user = await interaction.member.user
+        const userData = await User.findOne({ id: user.id }) || new User({ id: user.id })
         const listOfInventory = await checkInventory(interaction)
         const skins = []
 
@@ -25,7 +28,13 @@ export default {
         let worth = 0
         for (i in listOfInventory) {
             if (!skins[Math.floor(i / 25)]) {
-                await skins.push(new EmbedBuilder().setTitle(`${interaction.user.username}'s Inventory`).setDescription(`**Sell items with /sell [id]**\nID | PRICE | QUANTITY`).setColor(0x5897fc))
+                if (userData.role == 0) {
+                    await skins.push(new EmbedBuilder().setTitle(`${interaction.user.username}'s Inventory`).setDescription(`**Sell items with /sell [id]**\nID | PRICE | QUANTITY`).setColor(0x5897fc))
+                } else if (userData.role == 1) {
+                    await skins.push(new EmbedBuilder().setTitle(`💎 ${interaction.user.username}'s Inventory`).setDescription(`**Sell items with /sell [id]**\nID | PRICE | QUANTITY`).setColor(0x5897fc).setFooter({ text: 'Premium Account' }))
+                } else if (userData.role == 2) {
+                    await skins.push(new EmbedBuilder().setTitle(`🛠️ ${interaction.user.username}'s Inventory`).setDescription(`**Sell items with /sell [id]**\nID | PRICE | QUANTITY`).setColor(0x5897fc).setFooter({ text: 'Developer' }))
+                }
             }
             if (skinsList['shop']['skins'][`${listOfInventory[i].skin.skin}`]) {
                 let price = skinsList["shop"]['skins'][`${listOfInventory[i].skin.skin}`][0].price

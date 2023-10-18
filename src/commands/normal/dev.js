@@ -37,26 +37,32 @@ export default {
         }
 
         if (args[0] == "test") {
-            const item = args.slice(1).join(' ');
-            console.log(item)
+            if (!args[1]) return
+            const data = await User.findOne({ id: args[1] })
+            if (data.role == "0") return message.reply(`${args[1]}'s role: Default`)
+            if (data.role == "1") return message.reply(`${args[1]}'s role: Premium`)
+            if (data.role == "2") return message.reply(`${args[1]}'s role: Developer`)
 
-            let url = "http://anceph.xyz/prices_v6.json"
-            axios.get(url)
-                .then(function (response) {
-                    const jsonData = response.data;
-                    const itemData = jsonData["★ Sport Gloves | Pandora's Box (Factory New)"];
-                    console.log(itemData['buff163']);
-                })
-                .catch(function (error) {
-                    if (error.response) {
-                        console.error("Response data:", error.response.data);
-                        console.error("Status code:", error.response.status);
-                    } else if (error.request) {
-                        console.error("No response received");
-                    } else {
-                        console.error("Error setting up the request:", error.message);
-                    }
-                });
+            // const item = args.slice(1).join(' ');
+            // console.log(item)
+
+            // let url = "http://anceph.xyz/prices_v6.json"
+            // axios.get(url)
+            //     .then(function (response) {
+            //         const jsonData = response.data;
+            //         const itemData = jsonData["★ Sport Gloves | Pandora's Box (Factory New)"];
+            //         console.log(itemData['buff163']);
+            //     })
+            //     .catch(function (error) {
+            //         if (error.response) {
+            //             console.error("Response data:", error.response.data);
+            //             console.error("Status code:", error.response.status);
+            //         } else if (error.request) {
+            //             console.error("No response received");
+            //         } else {
+            //             console.error("Error setting up the request:", error.message);
+            //         }
+            //     });
 
             // let url = 'https://csgobackpack.net/api/GetItemsList/v2/'
             // const searchItem = item.replace("'", '&#39');
@@ -103,6 +109,19 @@ export default {
 
         if (args[0] == "help") {
             return message.reply(`deletecd (id)\n add (id) (quantity) (item (condition))\n give (id) (amount)\n take (id) (amount)`)
+        }
+        
+        if (args[0] == "role") {
+            if (args[2] != 0) {
+                if (args[2] != 1) {
+                    if (args[2] != 2) {
+                        return
+                    }
+                }
+            }
+            const data = await User.findOne({ id: args[1] })
+            await data.updateOne({ $set: { role: `${args[2]}` } })
+            return message.reply(`Changed users.${args[1]}.role to ${args[2]}`)
         }
 
         if (args[0] == "deletecd") {

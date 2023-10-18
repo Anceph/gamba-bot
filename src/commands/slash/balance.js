@@ -14,10 +14,19 @@ export default {
         const balance = userData.balance.toFixed(2)
 
         const embed = new EmbedBuilder()
-            .setTitle(`${user.username}'s balance`)
             .setDescription(`$${balance}`)
             .setColor('Yellow')
             .setThumbnail(user.displayAvatarURL())
+
+        if (userData.role == 1) {
+            embed.setTitle(`💎 ${user.username}'s balance`)
+            embed.setFooter({ text: 'Premium Account' })
+        } else if (userData.role == 2) {
+            embed.setTitle(`🛠️ ${user.username}'s balance`)
+            embed.setFooter({ text: 'Developer' })
+        } else if (userData.role == 0) {
+            embed.setTitle(`${user.username}'s balance`)
+        }
 
         return interaction.reply({ embeds: [embed] })
     }

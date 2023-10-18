@@ -11,7 +11,15 @@ export default {
         const user = interaction.member.user
         const userData = await User.findOne({ id: user.id }) || new User({ id: user.id })
         const embed = new EmbedBuilder().setColor('Yellow')
-        const salary = 50
+        let salary
+
+        if (userData.role == 0) {
+            salary = 50
+        } else if (userData.role == 1) {
+            salary = 500
+        } else if (userData.role == 2) {
+            salary = 31
+        }
 
         if (userData.cooldowns.daily > Date.now()) return interaction.reply({
             embeds: [
@@ -24,8 +32,22 @@ export default {
         userData.cooldowns.daily = Date.now() + (1000 * 86400)
         userData.save()
 
-        return interaction.reply({
-            embeds: [ embed.setDescription(`💰 You have collected your daily **$${salary}** amount. Your balance is now at **$${userData.balance}**`) ]
-        })
+        if (userData.role == 1) {
+            const embed = new EmbedBuilder()
+                .setFooter({ text: 'Premium Account' })
+                .setColor('Gold')
+
+            return interaction.reply({
+                embeds: [ embed.setDescription(`💰 You have collected your daily **$${salary}** amount. Your balance is now at **$${userData.balance.toFixed(2)}**`) ]
+            })
+        } else {
+            const embed = new EmbedBuilder()
+                .setColor('Gold')
+
+            return interaction.reply({
+                embeds: [ embed.setDescription(`💰 You have collected your daily **$${salary}** amount. Your balance is now at **$${userData.balance.toFixed(2)}**`) ]
+            })
+        }
+
     }
 };
