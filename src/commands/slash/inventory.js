@@ -73,6 +73,9 @@ export default {
             return interaction.editReply({ content: '', embeds: [errorEmbed] })
         }
 
+        userData.totalInventoryValue += worth
+        userData.save()
+
         return interaction.editReply({ content: `Total Value: **$${worth.toFixed(2)}**`, embeds: skins })
     }
 };
