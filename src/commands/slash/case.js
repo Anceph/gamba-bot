@@ -134,7 +134,7 @@ export default {
         const finalSkin = `${obtainedSkin.skin} (${obtainedSkin.condition})`
         let itemInfo = await getItem(finalSkin)
         let skinPrice
-        if (itemInfo.price && itemInfo.price['7_days']) {
+        if (itemInfo.price && itemInfo.price['7_days'] && itemInfo.price['7_days'].average != 0 && itemInfo.price['7_days'].median != 0) {
             skinPrice = itemInfo.price['7_days']
         } else {
             let tempPrice = await getPrice(finalSkin)
@@ -156,6 +156,7 @@ export default {
         } else if (skinPrice.average) {
             embed.setDescription(`You got **${finalSkin}**\n Price: $${skinPrice.average}`)
         } else {
+            // FIXME: Moto Gloves | Cool Mint (Factory New) not a number diyor hayırdır?
             embed.setDescription(`You got **${finalSkin}**\n Price: $${skinPrice}`)
         }
 

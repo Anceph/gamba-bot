@@ -58,7 +58,7 @@ export default {
             let quantity = dbData.inventory[idOfItem].quantity
             let itemInfo = await getItem(`${dbData.inventory[idOfItem].skin}`)
             let skinPrice
-            if (itemInfo.price && itemInfo.price['7_days']) {
+            if (itemInfo.price && itemInfo.price['7_days'] && itemInfo.price['7_days'].average != 0 && itemInfo.price['7_days'].median != 0) {
                 skinPrice = itemInfo.price['7_days']
             } else {
                 let tempPrice1 = await getPrice(skinName)

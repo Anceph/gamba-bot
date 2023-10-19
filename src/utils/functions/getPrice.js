@@ -7,6 +7,7 @@ export default async function getPrice(item) {
             const jsonData = response.data;
             const itemData = jsonData[`${item}`];
             
+            console.log(itemData['buff163'].starting_at)
             return itemData['buff163'].starting_at
         })
         .catch(function (error) {

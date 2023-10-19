@@ -44,7 +44,7 @@ export default {
             } else {
                 let itemInfo = await getItem(listOfInventory[i].skin.skin)
                 let skinPrice
-                if (itemInfo.price && itemInfo.price['7_days']) {
+                if (itemInfo.price && itemInfo.price['7_days'] && itemInfo.price['7_days'].average != 0 && itemInfo.price['7_days'].median != 0) {
                     skinPrice = itemInfo.price['7_days']
                 } else {
                     let tempPrice = await getPrice(listOfInventory[i].skin.skin)

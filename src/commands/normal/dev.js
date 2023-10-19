@@ -4,6 +4,7 @@ import skinsData from '../../utils/skins.json' assert { type: "json" }
 import inventory from '../../utils/db/inventory.js'
 import axios from 'axios';
 import getItem from '../../utils/functions/getItem.js'
+import Guild from '../../utils/db/guilds.js';
 
 const probabilities = {
     "Mil-spec": 0.7992327,
@@ -37,11 +38,17 @@ export default {
         }
 
         if (args[0] == "test") {
-            if (!args[1]) return
-            const data = await User.findOne({ id: args[1] })
-            if (data.role == "0") return message.reply(`${args[1]}'s role: Default`)
-            if (data.role == "1") return message.reply(`${args[1]}'s role: Premium`)
-            if (data.role == "2") return message.reply(`${args[1]}'s role: Developer`)
+            const data = await Guild.findOne({ id: message.guildId })
+            if (!data) {
+                Guild.create({
+                    id: message.guildId
+                })
+            }
+            // if (!args[1]) return
+            // const data = await User.findOne({ id: args[1] })
+            // if (data.role == "0") return message.reply(`${args[1]}'s role: Default`)
+            // if (data.role == "1") return message.reply(`${args[1]}'s role: Premium`)
+            // if (data.role == "2") return message.reply(`${args[1]}'s role: Developer`)
 
             // const item = args.slice(1).join(' ');
             // console.log(item)
@@ -110,7 +117,7 @@ export default {
         if (args[0] == "help") {
             return message.reply(`deletecd (id)\n add (id) (quantity) (item (condition))\n give (id) (amount)\n take (id) (amount)`)
         }
-        
+
         if (args[0] == "role") {
             if (args[2] != 0) {
                 if (args[2] != 1) {
