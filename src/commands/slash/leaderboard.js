@@ -78,6 +78,7 @@ export default {
                     9: ${top10[8].username}: $${top10[8].value.toFixed(2)}
                     10: ${top10[9].username}: $${top10[9].value.toFixed(2)}`
                 )
+                .setFooter({ text: 'To refresh the value type /inventory' })
 
             return interaction.reply({ embeds: [embed] })
         } else {
