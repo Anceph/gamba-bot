@@ -23,7 +23,6 @@ export default {
             embed.setFooter({ text: 'Premium Account' })
         } else if (userData.role == 2) {
             embed.setTitle(`🛠️ ${user.username}'s balance`)
-            embed.setFooter({ text: 'Developer' })
         } else if (userData.role == 0) {
             embed.setTitle(`${user.username}'s balance`)
         }

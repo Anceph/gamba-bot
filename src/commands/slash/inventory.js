@@ -33,7 +33,7 @@ export default {
                 } else if (userData.role == 1) {
                     await skins.push(new EmbedBuilder().setTitle(`💎 ${interaction.user.username}'s Inventory`).setDescription(`**Sell items with /sell [id]**\nID | PRICE | QUANTITY`).setColor(0x5897fc).setFooter({ text: 'Premium Account' }))
                 } else if (userData.role == 2) {
-                    await skins.push(new EmbedBuilder().setTitle(`🛠️ ${interaction.user.username}'s Inventory`).setDescription(`**Sell items with /sell [id]**\nID | PRICE | QUANTITY`).setColor(0x5897fc).setFooter({ text: 'Developer' }))
+                    await skins.push(new EmbedBuilder().setTitle(`🛠️ ${interaction.user.username}'s Inventory`).setDescription(`**Sell items with /sell [id]**\nID | PRICE | QUANTITY`).setColor(0x5897fc))
                 }
             }
             if (skinsList['shop']['skins'][`${listOfInventory[i].skin.skin}`]) {
