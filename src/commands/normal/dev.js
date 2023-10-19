@@ -5,6 +5,7 @@ import inventory from '../../utils/db/inventory.js'
 import axios from 'axios';
 import getItem from '../../utils/functions/getItem.js'
 import Guild from '../../utils/db/guilds.js';
+import 'dotenv/config'
 
 const probabilities = {
     "Mil-spec": 0.7992327,
@@ -14,20 +15,12 @@ const probabilities = {
     "Special_Item": 0.0025575
 };
 
-// const Fetcher = new SteamMarketFetcher({
-//     currency: 'USD',
-//     format: 'json'
-// });
-
-// const user = new SteamUser();
-// const cdn = new CSGOCdn(user, {logLevel: 'debug'});
-
 export default {
     name: "dev",
     aliases: [],
     cooldown: 0,
     run: async (client, message, args) => {
-        if (message.author.id != 416826079563612181) return
+        if (message.author.id != process.env.OWNER_ID) return
 
         if (args[0] == "test2") {
             const item = args.slice(1).join(' ');

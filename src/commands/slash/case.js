@@ -156,7 +156,6 @@ export default {
         } else if (skinPrice.average) {
             embed.setDescription(`You got **${finalSkin}**\n Price: $${skinPrice.average}`)
         } else {
-            // FIXME: Moto Gloves | Cool Mint (Factory New) not a number diyor hayırdır?
             embed.setDescription(`You got **${finalSkin}**\n Price: $${skinPrice}`)
         }
 
