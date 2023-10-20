@@ -130,6 +130,13 @@ export default {
             return message.reply(`Deleted users.${args[1]}.cooldowns.daily from the database`)
         }
 
+        if (args[0] == "bj") {
+            const data = await User.findOne({ id: args[1] })
+            data.isPlayingBj = false
+            await data.save()
+            return message.reply(`Changed users.${args[1]}.isPlayingBj to false`)
+        }
+
         if (args[0] == "add") {
             const dbData = await inventory.findOne({
                 user_id: args[1]

@@ -4,6 +4,7 @@ import { REST } from '@discordjs/rest'
 import { Routes } from 'discord-api-types/v10'
 import mongoose from 'mongoose'
 import * as database from './src/utils/db/methods.js'
+import config from './src/config.json' assert { type: "json" }
 import 'dotenv/config'
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.GuildMessageTyping, GatewayIntentBits.DirectMessages, GatewayIntentBits.DirectMessageReactions, GatewayIntentBits.DirectMessageTyping, GatewayIntentBits.MessageContent], shards: "auto", partials: [Partials.Message, Partials.Channel, Partials.GuildMember, Partials.Reaction, Partials.GuildScheduledEvent, Partials.User, Partials.ThreadMember] });
@@ -12,6 +13,8 @@ client.commands = new Collection()
 client.slashcommands = new Collection()
 client.commandaliases = new Collection()
 client.database = database
+
+const emojiList = {};
 
 const rest = new REST({ version: '10' }).setToken(process.env.BOT_TOKEN);
 
@@ -64,7 +67,17 @@ client.on("ready", async () => {
     } catch (err) {
         console.error(err);
     }
+
+    await config.guilds.forEach(async (guild) => {
+        guild = client.guilds.cache.get(guild);
+        for (const [key, value] of await guild.emojis.fetch()) {
+            emojiList[value.name] = value;
+        }
+    });
+
     console.log(`${client.user.username} ready`);
 })
+
+export { emojiList };
 
 client.login(process.env.BOT_TOKEN)

@@ -10,7 +10,7 @@ export default {
 				const command = client.slashcommands.get(interaction.commandName)
 				command.run(client, interaction)
 			} catch {
-				interaction.reply({ content: "An error occurred while running the command. Please try again and inform my developer.", ephemeral: true })
+				interaction.reply({ content: "An error occurred while running the command. Please try again.", ephemeral: true })
 			}
 		}
 	}
