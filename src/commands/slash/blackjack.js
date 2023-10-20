@@ -173,7 +173,7 @@ export default {
                             embed.data.fields[0].value = `You won $${results.winnings}`
                         }
                         embed.setColor(3066993);
-                        userData.balance += results.bet + results.winnings
+                        userData.balance += results.winnings
                         userData.isPlayingBj = false
                         await userData.save()
                     } else if (results.state === 'dealer_win') {
