@@ -42,7 +42,7 @@ export default {
                 const Game = new Blackjack({
                     decks: 2,
                     payouts: {
-                        blackjack: 2,
+                        blackjack: 3,
                         default: 2,
                     },
                 });
