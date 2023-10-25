@@ -268,6 +268,8 @@ export default {
                 });
             } else {
                 errorEmbed.setDescription(`You don't have $${tempBet} in your account`)
+                userData.isPlayingBj = false
+                await userData.save()
                 await interaction.editReply({ embeds: [errorEmbed] });
             }
         } catch (error) {
