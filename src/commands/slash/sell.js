@@ -40,7 +40,7 @@ export default {
         })
 
         if (!dbData) {
-            inventory.create({
+            return inventory.create({
                 user_id: interaction.user.id
             })
         } else {
