@@ -3,6 +3,7 @@ import User from '../../utils/db/users.js'
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } from "discord.js";
 import { emojiList } from "../../../app.js";
 import Blackjack from "simply-blackjack";
+import giveXp from "../../utils/functions/giveXp.js";
 
 export default {
     data: new SlashCommandBuilder()
@@ -37,6 +38,7 @@ export default {
 
             if (userData.balance >= tempBet) {
                 userData.balance -= tempBet
+                await giveXp(user, userData, interaction.channelId, client)
                 await userData.save()
 
                 const Game = new Blackjack({

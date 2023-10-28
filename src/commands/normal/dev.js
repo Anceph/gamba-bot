@@ -1,11 +1,13 @@
 import { EmbedBuilder } from 'discord.js';
 import User from '../../utils/db/users.js'
 import skinsData from '../../utils/skins.json' assert { type: "json" }
+import ranksData from '../../utils/ranks.json' assert { type: "json" }
 import inventory from '../../utils/db/inventory.js'
 import axios from 'axios';
 import getItem from '../../utils/functions/getItem.js'
 import Guild from '../../utils/db/guilds.js';
 import 'dotenv/config'
+import getRankReq from '../../utils/functions/getRankReq.js';
 
 const probabilities = {
     "Mil-spec": 0.7992327,
@@ -31,12 +33,20 @@ export default {
         }
 
         if (args[0] == "test") {
-            const data = await Guild.findOne({ id: message.guildId })
-            if (!data) {
-                Guild.create({
-                    id: message.guildId
-                })
-            }
+            // return console.log(User.db.collections.users)
+            // User.forEach(async (user) => {
+            //     user.xp += 5
+            //     await user.save()
+            // })
+            // const data = await User.findOne({ id: args[1] })
+            // return getRankReq(data.rank)
+            // return message.reply(`Rank: ${data.rank} (${data.xp}/${data.nextRankReq} XP)`)
+            // const data = await Guild.findOne({ id: message.guildId })
+            // if (!data) {
+            //     Guild.create({
+            //         id: message.guildId
+            //     })
+            // }
             // if (!args[1]) return
             // const data = await User.findOne({ id: args[1] })
             // if (data.role == "0") return message.reply(`${args[1]}'s role: Default`)
@@ -124,6 +134,23 @@ export default {
             return message.reply(`Changed users.${args[1]}.role to ${args[2]}`)
         }
 
+        if (args[0] == "rank") {
+            const data = await User.findOne({ id: args[1] })
+            let test = args[2] - 1
+            let previousRank
+            if (test < 0) {
+                previousRank = await getRankReq(0)
+            } else {
+                previousRank = await getRankReq(test)
+            }
+            let rankReq = await getRankReq(args[2])
+            data.nextRankReq = rankReq
+            data.xp = previousRank
+            await data.save()
+            await data.updateOne({ $set: { rank: `${args[2]}` } })
+            return message.reply(`Changed users.${args[1]}.rank to ${args[2]}`)
+        }
+
         if (args[0] == "deletecd") {
             const data = await User.findOne({ id: args[1] })
             await data.updateOne({ $unset: { cooldowns: "" } })
@@ -180,19 +207,45 @@ export default {
         }
 
         if (args[0] == "give") {
-            const data = await User.findOne({ id: args[1] })
-            const giveBalance = parseFloat(args[2])
-            data.balance += giveBalance
-            await data.save()
-            return message.reply(`Added ${giveBalance} to users.${args[1]}.balance (Currently at ${data.balance})`)
+            if (args[1] == "xp") {
+                const data = await User.findOne({ id: args[2] })
+                data.xp += parseInt(args[3])
+                await data.save()
+                if (data.xp >= data.nextRankReq) {
+                    data.rank += 1
+                    data.nextRankReq = await getRankReq(data.rank)
+                    await data.save()
+                    return message.reply(`Added ${args[3]} to users.${args[2]}.xp (Currently at ${data.xp})`)
+                } else {
+                    await data.save()
+                    return message.reply(`Added ${args[3]} to users.${args[2]}.xp (Currently at ${data.xp})`)
+                }
+            } else if (args[1] == "money") {
+                const data = await User.findOne({ id: args[2] })
+                const giveBalance = parseFloat(args[3])
+                data.balance += giveBalance
+                await data.save()
+                return message.reply(`Added ${giveBalance} to users.${args[2]}.balance (Currently at ${data.balance})`)
+            } else {
+                return message.reply(`Error`)
+            }
         }
 
         if (args[0] == "take") {
-            const data = await User.findOne({ id: args[1] })
-            const giveBalance = parseFloat(args[2])
-            data.balance -= giveBalance
-            await data.save()
-            return message.reply(`Removed ${giveBalance} from users.${args[1]}.balance (Currently at ${data.balance})`)
+            if (args[1] == "xp") {
+                const data = await User.findOne({ id: args[2] })
+                data.xp -= parseInt(args[3])
+                await data.save()
+                return message.reply(`Removed ${args[3]} from users.${args[2]}.xp (Currently at ${data.xp})`)
+            } else if (args[1] == "money") {
+                const data = await User.findOne({ id: args[2] })
+                const giveBalance = parseFloat(args[3])
+                data.balance -= giveBalance
+                await data.save()
+                return message.reply(`Removed ${giveBalance} from users.${args[2]}.balance (Currently at ${data.balance})`)
+            } else {
+                return message.reply(`Error`)
+            }
         }
     }
 };

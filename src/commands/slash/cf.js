@@ -1,6 +1,7 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import User from '../../utils/db/users.js'
 import { EmbedBuilder } from "discord.js";
+import giveXp from "../../utils/functions/giveXp.js";
 
 export default {
     data: new SlashCommandBuilder()
@@ -55,6 +56,7 @@ export default {
         result = await flipCoin()
 
         userData.balance -= tempBet
+        await giveXp(user, userData, interaction.channelId, client)
         await userData.save()
         let winPrice = tempBet * 2
 

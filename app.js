@@ -20,7 +20,6 @@ const rest = new REST({ version: '10' }).setToken(process.env.BOT_TOKEN);
 
 process.on('unhandledRejection', (reason, promise) => {
     console.error('Unhandled Promise Rejection:', reason);
-    // Additional error handling or logging can be done here
 });
 
 await mongoose.connect(`mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASS}@${process.env.MONGODB_IP}/?retryWrites=true&w=majority`)

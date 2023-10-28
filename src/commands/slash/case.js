@@ -7,6 +7,7 @@ import User from '../../utils/db/users.js'
 import prettyMilliseconds from "pretty-ms";
 import getItem from '../../utils/functions/getItem.js'
 import getPrice from "../../utils/functions/getPrice.js";
+import giveXp from "../../utils/functions/giveXp.js";
 
 const probabilities = {
     "Mil-spec": 0.7992327,
@@ -129,6 +130,9 @@ export default {
 
             await dbData.save();
         }
+
+        await giveXp(user, userData, interaction.channelId, client)
+        await userData.save()
 
         let obtainedSkin = getRandomSkin(Skins)
         const finalSkin = `${obtainedSkin.skin} (${obtainedSkin.condition})`

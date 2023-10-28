@@ -1,0 +1,112 @@
+{
+    "ranks": {
+        "Silver I": [
+            {
+                "name": "Silver I",
+                "requirement": 249
+            }
+        ],
+        "Silver II": [
+            {
+                "name": "Silver II",
+                "requirement": 499
+            }
+        ],
+        "Silver III": [
+            {
+                "name": "Silver III",
+                "requirement": 999
+            }
+        ],
+        "Silver IV": [
+            {
+                "name": "Silver IV",
+                "requirement": 1999
+            }
+        ],
+        "Silver Elite": [
+            {
+                "name": "Silver Elite",
+                "requirement": 3999
+            }
+        ],
+        "Silver Elite Master": [
+            {
+                "name": "Silver Elite Master",
+                "requirement": 7999
+            }
+        ],
+        "Gold Nova I": [
+            {
+                "name": "Gold Nova I",
+                "requirement": 15999
+            }
+        ],
+        "Gold Nova II": [
+            {
+                "name": "Gold Nova IO",
+                "requirement": 31999
+            }
+        ],
+        "Gold Nova III": [
+            {
+                "name": "Gold Nova III",
+                "requirement": 63999
+            }
+        ],
+        "Gold Nova Master": [
+            {
+                "name": "Gold Nova Master",
+                "requirement": 127999
+            }
+        ],
+        "Master Guardian I": [
+            {
+                "name": "Master Guardian I",
+                "requirement": 255999
+            }
+        ],
+        "Master Guardian II": [
+            {
+                "name": "Master Guardian II",
+                "requirement": 511999
+            }
+        ],
+        "Master Guardian Elite": [
+            {
+                "name": "Master Guardian Elite",
+                "requirement": 1023999
+            }
+        ],
+        "Distinguished Master Guardian": [
+            {
+                "name": "Distinguished Master Guardian",
+                "requirement": 2047999
+            }
+        ],
+        "Legendary Eagle": [
+            {
+                "name": "Legendary Eagle",
+                "requirement": 4095999
+            }
+        ],
+        "Legendary Eagle Master": [
+            {
+                "name": "Legendary Eagle Master",
+                "requirement": 8191999
+            }
+        ],
+        "Supreme Master First Class": [
+            {
+                "name": "Supreme Master First Class",
+                "requirement": 16383999
+            }
+        ],
+        "Global Elite": [
+            {
+                "name": "Global Elite",
+                "requirement": 32767996
+            }
+        ]
+    }
+}
