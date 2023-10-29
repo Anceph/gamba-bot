@@ -263,7 +263,7 @@ export default {
                     }
                 });
 
-                collector.on('end', () => {
+                collector.on('end', async () => {
                     if (collector.endReason === 'time') {
                         Game.stand();
                     }
@@ -276,6 +276,8 @@ export default {
             }
         } catch (error) {
             console.error(`Blackjack: ${error}`);
+            userData.isPlayingBj = false
+            await userData.save()
             interaction.editReply({
                 content: "An error occurred while running the command. Please try again.",
                 embeds: [],
