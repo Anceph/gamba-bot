@@ -38,6 +38,8 @@ export default {
         const idOfItem = interaction.options.getString('item')
         const quantityOfItem = interaction.options.getNumber('quantity')
 
+        await interaction.reply('Checking prices...')
+
         const dbData = await inventory.findOne({
             user_id: interaction.user.id
         })
@@ -52,7 +54,7 @@ export default {
             let skinPrice = skinsList['shop']['skins'][`${idOfItem}`][0].price
             if (userData.balance < skinPrice * quantityOfItem) {
                 errorEmbed.setDescription(`You need $${skinPrice * quantityOfItem} to buy this item`)
-                return interaction.reply({ embeds: [errorEmbed] })
+                return interaction.editReply({ text: '', embeds: [errorEmbed] })
             } else {
                 let skinName = idOfItem
                 let skinIcon
@@ -85,7 +87,7 @@ export default {
                     .setColor('Green')
                     .setThumbnail(`${skinIcon}`)
 
-                return interaction.reply({ embeds: [embed] })
+                return interaction.editReply({ text:'', embeds: [embed] })
             }
         }
     }
