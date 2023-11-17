@@ -54,7 +54,7 @@ export default {
             let skinPrice = skinsList['shop']['skins'][`${idOfItem}`][0].price
             if (userData.balance < skinPrice * quantityOfItem) {
                 errorEmbed.setDescription(`You need $${skinPrice * quantityOfItem} to buy this item`)
-                return interaction.editReply({ text: '', embeds: [errorEmbed] })
+                return interaction.editReply({ content: '', embeds: [errorEmbed] })
             } else {
                 let skinName = idOfItem
                 let skinIcon
@@ -87,7 +87,7 @@ export default {
                     .setColor('Green')
                     .setThumbnail(`${skinIcon}`)
 
-                return interaction.editReply({ text:'', embeds: [embed] })
+                return interaction.editReply({ content: '', embeds: [embed] })
             }
         }
     }
