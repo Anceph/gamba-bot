@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default async function getPrice(item) {
-    const url = 'http://anceph.xyz/prices_v6.json'
+    const url = 'https://anceph.github.io/naber/prices_v6.json'
     return await axios.get(url)
         .then(function (response) {
             const jsonData = response.data;
