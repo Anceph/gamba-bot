@@ -37,6 +37,7 @@ export default {
                     { name: 'Revolver Case', value: 'revolver-case' },
                 )),
     run: async (client, interaction) => {
+        await interaction.deferReply()
         const caseName = interaction.options.getString('case')
         const { skins: Skins } = skinsData[caseName];
         const dbData = await inventory.findOne({
@@ -104,7 +105,7 @@ export default {
             .setDescription(`Opening the case...`)
             .setThumbnail(`${skinsData[caseName].icon}`)
 
-        await interaction.reply({ embeds: [opening] })
+        await interaction.editReply({ embeds: [opening] })
 
         if (!dbData) {
             return inventory.create({
