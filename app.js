@@ -1,4 +1,4 @@
-import { Client, Partials, GatewayIntentBits, Collection } from "discord.js"
+import { Client, Partials, GatewayIntentBits, Collection, EmbedBuilder } from "discord.js"
 import { readdirSync } from "fs"
 import { REST } from '@discordjs/rest'
 import { Routes } from 'discord-api-types/v10'
