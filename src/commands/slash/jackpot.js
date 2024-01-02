@@ -15,10 +15,6 @@ export default {
     run: async (client, interaction) => {
         return interaction.reply({ text: 'daha yok baybay', ephemeral: true })
 
-        // TODO: BURAYI KOMPLE YAP
-        // TODO: BURAYI KOMPLE YAP
-        // TODO: BURAYI KOMPLE YAP
-
         const user = interaction.member.user
         const errorEmbed = new EmbedBuilder().setTitle('Error').setColor('Red')
         const userData = await User.findOne({ id: user.id }) || new User({ id: user.id })

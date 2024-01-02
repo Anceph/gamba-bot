@@ -63,6 +63,20 @@ client.on("ready", async () => {
             Routes.applicationCommands(client.user.id),
             { body: slashcommands },
         );
+
+        process.on('unhandledRejection', async (reason, promise) => {
+            console.log('Unhandled Rejection', reason)
+            const channel = client.channels.cache.get('1068159885918871554');
+            const embed = new EmbedBuilder()
+                .setTitle('Unhandled Rejection')
+                .setDescription(`Reason: ${reason.message}\nStack: ${reason.stack}`)
+                .setColor('#FF0000')
+                .setTimestamp()
+
+            if (channel) {
+                await channel.send({ embeds: [embed] });
+            }
+        });
     } catch (err) {
         console.error(err);
     }
