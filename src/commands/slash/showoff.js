@@ -44,31 +44,21 @@ export default {
 
             let skinName = dbData.inventory[idOfItem].skin
             let itemInfo = await getItem(`${dbData.inventory[idOfItem].skin}`)
-            let skinPrice
-            if (itemInfo.price && itemInfo.price['7_days'] && itemInfo.price['7_days'].average != 0 && itemInfo.price['7_days'].median != 0) {
-                skinPrice = itemInfo.price['7_days']
-            } else {
-                let tempPrice1 = await getPrice(skinName)
-                skinPrice = tempPrice1.price
-            }
-            let skinIcon = `https://steamcommunity-a.akamaihd.net/economy/image/${itemInfo.icon_url}`
+            let skinPrice = itemInfo.buff163.starting_at.price
+            let skinIcon = await market.getItemImage({
+                market_hash_name: skinName,
+                appid: 730
+            })
 
             const embed = new EmbedBuilder()
                 .setTitle(`${skinName}`)
                 .setThumbnail(user.displayAvatarURL())
                 .setImage(skinIcon)
                 .setColor('#a442f5')
+                .setDescription(`Price: **$${skinPrice}**`)
 
             if (userData.role == 1) {
                 embed.setFooter({ text: 'Premium Account' })
-            }
-
-            if (skinPrice.median == undefined && skinPrice.average) {
-                embed.setDescription(`Price: **$${skinPrice.average}**`)
-            } else if (skinPrice.median) {
-                embed.setDescription(`Price: **$${skinPrice.median}**`)
-            } else {
-                embed.setDescription(`Price: **$${skinPrice}**`)
             }
 
             return interaction.reply({ embeds: [embed] })

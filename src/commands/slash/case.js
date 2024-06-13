@@ -8,6 +8,7 @@ import prettyMilliseconds from "pretty-ms";
 import getItem from '../../utils/functions/getItem.js'
 import getPrice from "../../utils/functions/getPrice.js";
 import giveXp from "../../utils/functions/giveXp.js";
+import SteamMarketFetcher from 'steam-market-fetcher';
 
 const probabilities = {
     "Mil-spec": 0.7992327,
@@ -16,6 +17,11 @@ const probabilities = {
     "Covert": 0.0063939,
     "Special Item": 0.0025575
 };
+
+const market = new SteamMarketFetcher({
+    currency: 'USD',
+    format: 'json'
+});
 
 export default {
     data: new SlashCommandBuilder()
@@ -46,15 +52,15 @@ export default {
 
         const embeds = new EmbedBuilder()
 
-        let keyIcon
+        let keyIcon = skinsData.shop.skins[`${skinsData[caseName]['name']} Key`][0].icon
 
-        let keyInfo = await getItem(`${skinsData[caseName]['name']} Key`)
-        if (keyInfo) {
-            keyIcon = `https://steamcommunity-a.akamaihd.net/economy/image/${keyInfo.icon_url}`
-        } else {
-            let newKeyInfo = await getItem(`${skinsData[caseName]['name']}`)
-            keyIcon = `https://steamcommunity-a.akamaihd.net/economy/image/${newKeyInfo.icon_url}`
-        }
+        // let keyInfo = await getItem(`${skinsData[caseName]['name']} Key`)
+        // if (keyInfo) {
+        //     keyIcon = `https://steamcommunity-a.akamaihd.net/economy/image/${keyInfo.icon_url}`
+        // } else {
+        //     let newKeyInfo = await getItem(`${skinsData[caseName]['name']}`)
+        //     keyIcon = `https://steamcommunity-a.akamaihd.net/economy/image/${newKeyInfo.icon_url}`
+        // }
 
         const user = interaction.member.user
         const userData = await User.findOne({ id: user.id }) || new User({ id: user.id })
@@ -138,14 +144,11 @@ export default {
         let obtainedSkin = getRandomSkin(Skins)
         const finalSkin = `${obtainedSkin.skin} (${obtainedSkin.condition})`
         let itemInfo = await getItem(finalSkin)
-        let skinPrice
-        if (itemInfo.price && itemInfo.price['7_days'] && itemInfo.price['7_days'].average != 0 && itemInfo.price['7_days'].median != 0) {
-            skinPrice = itemInfo.price['7_days']
-        } else {
-            let tempPrice = await getPrice(finalSkin)
-            skinPrice = tempPrice.price
-        }
-        let skinIcon = `https://steamcommunity-a.akamaihd.net/economy/image/${itemInfo.icon_url}`
+        let skinPrice = itemInfo.buff163.starting_at.price
+        let skinIcon = await market.getItemImage({
+            market_hash_name: finalSkin,
+            appid: 730
+        })
 
         const embed = new EmbedBuilder()
             .setTitle(`${skinsData[caseName].name}`)
@@ -155,14 +158,15 @@ export default {
                         obtainedSkin.rarity === 'Covert' ? 0xeb4b4b :
                             obtainedSkin.rarity === 'Special Item' ? 0xffd700 : 'Black')
             .setFooter({ text: `Automatically sold if you don't select keep in 10 seconds` })
+            .setDescription(`You got **${finalSkin}**\n Price: $${skinPrice}`)
 
-        if (skinPrice.median) {
-            embed.setDescription(`You got **${finalSkin}**\n Price: $${skinPrice.median}`)
-        } else if (skinPrice.average) {
-            embed.setDescription(`You got **${finalSkin}**\n Price: $${skinPrice.average}`)
-        } else {
-            embed.setDescription(`You got **${finalSkin}**\n Price: $${skinPrice}`)
-        }
+        // if (skinPrice.median) {
+        //     embed.setDescription(`You got **${finalSkin}**\n Price: $${skinPrice.median}`)
+        // } else if (skinPrice.average) {
+        //     embed.setDescription(`You got **${finalSkin}**\n Price: $${skinPrice.average}`)
+        // } else {
+        //     embed.setDescription(`You got **${finalSkin}**\n Price: $${skinPrice}`)
+        // }
 
         if (skinIcon) {
             embed.setThumbnail(`${skinIcon}`)

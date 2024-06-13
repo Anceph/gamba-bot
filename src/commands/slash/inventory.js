@@ -5,6 +5,12 @@ import skinsList from '../../utils/skins.json' assert { type: "json" }
 import getItem from '../../utils/functions/getItem.js'
 import getPrice from "../../utils/functions/getPrice.js";
 import User from '../../utils/db/users.js'
+import SteamMarketFetcher from 'steam-market-fetcher';
+
+const market = new SteamMarketFetcher({
+    currency: 'USD',
+    format: 'json'
+});
 
 export default {
     data: new SlashCommandBuilder()
@@ -43,27 +49,10 @@ export default {
                 i++
             } else {
                 let itemInfo = await getItem(listOfInventory[i].skin.skin)
-                let skinPrice
-                if (itemInfo.price && itemInfo.price['7_days'] && itemInfo.price['7_days'].average != 0 && itemInfo.price['7_days'].median != 0) {
-                    skinPrice = itemInfo.price['7_days']
-                } else {
-                    let tempPrice = await getPrice(listOfInventory[i].skin.skin)
-                    skinPrice = tempPrice.price
-                }
+                let skinPrice = itemInfo.buff163.starting_at.price
 
-                if (skinPrice.median == undefined && skinPrice.average) {
-                    let average_price = skinPrice.average * listOfInventory[i].skin.quantity
-                    worth += parseFloat(average_price)
-                    await skins[Math.floor(i / 25)].addFields({ name: `${listOfInventory[i].id} ($${average_price.toFixed(2)}) [${listOfInventory[i].skin.quantity}]`, value: `${listOfInventory[i].skin.skin}`, inline: true })
-                } else if (skinPrice.median) {
-                    let median_price = skinPrice.median * listOfInventory[i].skin.quantity
-                    worth += parseFloat(median_price)
-                    await skins[Math.floor(i / 25)].addFields({ name: `${listOfInventory[i].id} ($${median_price.toFixed(2)}) [${listOfInventory[i].skin.quantity}]`, value: `${listOfInventory[i].skin.skin}`, inline: true })
-                } else {
-                    let median_price = skinPrice * listOfInventory[i].skin.quantity
-                    worth += parseFloat(median_price)
-                    await skins[Math.floor(i / 25)].addFields({ name: `${listOfInventory[i].id} ($${median_price.toFixed(2)}) [${listOfInventory[i].skin.quantity}]`, value: `${listOfInventory[i].skin.skin}`, inline: true })
-                }
+                worth += parseFloat(skinPrice * listOfInventory[i].skin.quantity)
+                await skins[Math.floor(i / 25)].addFields({ name: `${listOfInventory[i].id} ($${skinPrice.toFixed(2)}) [${listOfInventory[i].skin.quantity}]`, value: `${listOfInventory[i].skin.skin}`, inline: true })
                 i++
             }
         }

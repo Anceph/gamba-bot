@@ -8,6 +8,7 @@ import getItem from '../../utils/functions/getItem.js'
 import Guild from '../../utils/db/guilds.js';
 import 'dotenv/config'
 import getRankReq from '../../utils/functions/getRankReq.js';
+import SteamMarketFetcher from 'steam-market-fetcher';
 
 const probabilities = {
     "Mil-spec": 0.7992327,
@@ -16,6 +17,11 @@ const probabilities = {
     "Covert": 0.0063939,
     "Special_Item": 0.0025575
 };
+
+const market = new SteamMarketFetcher({
+    currency: 'USD',
+    format: 'json'
+});
 
 export default {
     name: "dev",
@@ -53,8 +59,8 @@ export default {
             // if (data.role == "1") return message.reply(`${args[1]}'s role: Premium`)
             // if (data.role == "2") return message.reply(`${args[1]}'s role: Developer`)
 
-            // const item = args.slice(1).join(' ');
-            // console.log(item)
+            const item = args.slice(1).join(' ');
+            console.log(item)
 
             // let url = "http://anceph.xyz/prices_v6.json"
             // axios.get(url)
@@ -99,8 +105,14 @@ export default {
             //         }
             //     }).catch(err => { console.log(err) })
 
-            // const result = await getItem(item)
-            // console.log(result)
+            const result = await getItem(item)
+            let icon = await market.getItemImage({
+                market_hash_name: item,
+                appid: 730
+            })
+            console.log(result, icon)
+            console.log(result.buff163.starting_at.price)
+
             // if (result.icon) {
             //     return console.log('var')
             // } else {

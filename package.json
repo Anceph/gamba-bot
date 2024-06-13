@@ -19,8 +19,9 @@
     "mongoose": "^7.1.0",
     "pretty-ms": "^8.0.0",
     "simply-blackjack": "^1.0.3",
-    "steam-market-fetcher": "^1.5.0",
+    "steam-market-fetcher": "^1.8.0",
     "steam-market-parser": "^1.1.0",
+    "steam-user": "^5.0.10",
     "string-similarity": "^4.0.4"
   }
 }

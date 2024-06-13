@@ -57,16 +57,16 @@ export default {
                 return interaction.editReply({ content: '', embeds: [errorEmbed] })
             } else {
                 let skinName = idOfItem
-                let skinIcon
+                let skinIcon = skinsList['shop']['skins'][`${idOfItem}`][0].icon
 
-                let keyInfo = await getItem(skinName)
-                if (keyInfo) {
-                    skinIcon = `https://steamcommunity-a.akamaihd.net/economy/image/${keyInfo.icon_url}`
-                } else {
-                    let newSkinName = skinName.replace(/\sKey$/, '')
-                    let newKeyInfo = await getItem(newSkinName)
-                    skinIcon = `https://steamcommunity-a.akamaihd.net/economy/image/${newKeyInfo.icon_url}`
-                }
+                // let keyInfo = await getItem(skinName)
+                // if (keyInfo) {
+                //     skinIcon = `https://steamcommunity-a.akamaihd.net/economy/image/${keyInfo.icon_url}`
+                // } else {
+                //     let newSkinName = skinName.replace(/\sKey$/, '')
+                //     let newKeyInfo = await getItem(newSkinName)
+                //     skinIcon = `https://steamcommunity-a.akamaihd.net/economy/image/${newKeyInfo.icon_url}`
+                // }
 
                 let existingItem
                 for (let i = 0; i < quantityOfItem; i++) {
