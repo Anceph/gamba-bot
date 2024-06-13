@@ -143,12 +143,14 @@ export default {
 
         let obtainedSkin = getRandomSkin(Skins)
         const finalSkin = `${obtainedSkin.skin} (${obtainedSkin.condition})`
+        console.log(finalSkin)
         let itemInfo = await getItem(finalSkin)
         let skinPrice = itemInfo.buff163.starting_at.price
         let skinIcon = await market.getItemImage({
             market_hash_name: finalSkin,
             appid: 730
         })
+        console.log(skinIcon)
 
         const embed = new EmbedBuilder()
             .setTitle(`${skinsData[caseName].name}`)
@@ -168,7 +170,7 @@ export default {
         //     embed.setDescription(`You got **${finalSkin}**\n Price: $${skinPrice}`)
         // }
 
-        if (skinIcon) {
+        if (skinIcon != "No image available") {
             embed.setThumbnail(`${skinIcon}`)
         } else {
             embed.setThumbnail(`https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png`)
@@ -222,7 +224,7 @@ export default {
                         });
                     }
                 } else if (confirmation.customId === 'sell') {
-                    let tempPrice = skinPrice.median
+                    let tempPrice = skinPrice
                     let fixedPrice = parseFloat(tempPrice)
 
                     userData.balance += fixedPrice
@@ -231,7 +233,7 @@ export default {
                     await confirmation.update({ content: 'Sold', components: [] });
                 }
             } catch (err) {
-                let tempPrice = skinPrice.median
+                let tempPrice = skinPrice
                 let fixedPrice = parseFloat(tempPrice)
 
                 userData.balance += fixedPrice

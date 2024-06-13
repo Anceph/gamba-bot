@@ -53,9 +53,14 @@ export default {
             const embed = new EmbedBuilder()
                 .setTitle(`${skinName}`)
                 .setThumbnail(user.displayAvatarURL())
-                .setImage(skinIcon)
                 .setColor('#a442f5')
                 .setDescription(`Price: **$${skinPrice}**`)
+
+            if (skinIcon != "No image available") {
+                embed.setImage(`${skinIcon}`)
+            } else {
+                embed.setImage(`https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png`)
+            }
 
             if (userData.role == 1) {
                 embed.setFooter({ text: 'Premium Account' })

@@ -85,8 +85,13 @@ export default {
                 const embed = new EmbedBuilder()
                     .setTitle('Market')
                     .setDescription(`You just sold your **${quantityToSell} ${skinName}** for **$${price}**`)
-                    .setThumbnail(`${skinIcon}`)
                     .setColor('Green')
+
+                    if (skinIcon != "No image available") {
+                        embed.setThumbnail(`${skinIcon}`)
+                    } else {
+                        embed.setThumbnail(`https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png`)
+                    }
 
                 return interaction.reply({ embeds: [embed] })
             } else {
