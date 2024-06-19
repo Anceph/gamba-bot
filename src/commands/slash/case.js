@@ -46,7 +46,7 @@ export default {
         const embeds = new EmbedBuilder()
         const user = interaction.member.user
         const userData = await User.findOne({ id: user.id }) || new User({ id: user.id })
-        
+
         if (userData.cooldowns.command && userData.cooldowns.command > Date.now()) {
             return interaction.reply({
                 embeds: [
@@ -57,7 +57,7 @@ export default {
         }
 
         await interaction.deferReply()
-        
+
         const caseName = interaction.options.getString('case')
         const { skins: Skins } = skinsData[caseName];
         const dbData = await inventory.findOne({
@@ -154,19 +154,13 @@ export default {
         let obtainedSkin = getRandomSkin(Skins, probabilities)
         let finalSkin = `${obtainedSkin.skin} (${obtainedSkin.condition})`
 
-        if (obtainedSkin.condition == undefined) {
+        if (obtainedSkin.condition == "vanilla") {
             finalSkin = `${obtainedSkin.skin}`
         }
 
-        console.log(finalSkin)
         let itemInfo = await getItem(finalSkin)
         let skinPrice = itemInfo.buff163.starting_at.price
-        console.log(skinPrice)
-        let skinIcon = await market.getItemImage({
-            market_hash_name: finalSkin,
-            appid: 730
-        })
-        console.log(skinIcon)
+        let skinIcon = obtainedSkin.icon
 
         const embed = new EmbedBuilder()
             .setTitle(`${skinsData[caseName].name}`)
@@ -188,7 +182,7 @@ export default {
 
         if (userData.devMode) embed.setFooter({ text: `Automatically sold if you don't select keep in 10 seconds\n\n⚙️ Testing Mode - Chances might be different than normal` })
 
-        if (skinIcon != "No image available") {
+        if (skinIcon) {
             embed.setThumbnail(`${skinIcon}`)
         } else {
             embed.setThumbnail(`https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png`)
@@ -271,12 +265,23 @@ function getRandomSkin(caseName, probabilities) {
             let skinsInRarity = caseName[rarity];
             let randSkinIndex = Math.floor(Math.random() * skinsInRarity.length);
             let randSkin = skinsInRarity[randSkinIndex];
-            let randCondition = randSkin.conditions[Math.floor(Math.random() * randSkin.conditions.length)];
+            let conditionsArray = Object.entries(randSkin.conditions);
+            conditionsArray = shuffleArray(conditionsArray);
+            let randCondition = conditionsArray[Math.floor(Math.random() * conditionsArray.length)];
             return {
                 skin: randSkin.name,
                 rarity: rarity,
-                condition: randCondition
+                condition: randCondition[0],
+                icon: randCondition[1]
             };
         }
     }
+}
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
 }

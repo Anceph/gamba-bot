@@ -2,6 +2,12 @@
 template
 old.blackjack.js
 TODO
+skins-data/
+updated_current.json
+naber.py
+new.json
+current.json
+src/utils/skins-copy.json
 
 # Logs
 logs
