@@ -43,28 +43,10 @@ export default {
                     { name: 'Revolver Case', value: 'revolver-case' },
                 )),
     run: async (client, interaction) => {
-        await interaction.deferReply()
-        const caseName = interaction.options.getString('case')
-        const { skins: Skins } = skinsData[caseName];
-        const dbData = await inventory.findOne({
-            user_id: interaction.user.id
-        })
-
         const embeds = new EmbedBuilder()
-
-        let keyIcon = skinsData.shop.skins[`${skinsData[caseName]['name']} Key`][0].icon
-
-        // let keyInfo = await getItem(`${skinsData[caseName]['name']} Key`)
-        // if (keyInfo) {
-        //     keyIcon = `https://steamcommunity-a.akamaihd.net/economy/image/${keyInfo.icon_url}`
-        // } else {
-        //     let newKeyInfo = await getItem(`${skinsData[caseName]['name']}`)
-        //     keyIcon = `https://steamcommunity-a.akamaihd.net/economy/image/${newKeyInfo.icon_url}`
-        // }
-
         const user = interaction.member.user
         const userData = await User.findOne({ id: user.id }) || new User({ id: user.id })
-
+        
         if (userData.cooldowns.command && userData.cooldowns.command > Date.now()) {
             return interaction.editReply({
                 embeds: [
@@ -73,6 +55,16 @@ export default {
                 ephemeral: true
             })
         }
+
+        await interaction.deferReply()
+        
+        const caseName = interaction.options.getString('case')
+        const { skins: Skins } = skinsData[caseName];
+        const dbData = await inventory.findOne({
+            user_id: interaction.user.id
+        })
+
+        let keyIcon = skinsData.shop.skins[`${skinsData[caseName]['name']} Key`][0].icon
 
         userData.cooldowns.command = Date.now() + 3.5 * 1000
         await userData.save()
