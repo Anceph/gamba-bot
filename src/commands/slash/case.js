@@ -227,7 +227,7 @@ export default {
                         if (existingItem) {
                             existingItem.quantity += 1
                         } else {
-                            await dbData.inventory.push({ skin: finalSkin, quantity: 1 })
+                            await dbData.inventory.push({ skin: finalSkin, quantity: 1, icon: skinIcon})
                         }
                         await dbData.save()
                         await confirmation.update({

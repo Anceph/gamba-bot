@@ -58,10 +58,7 @@ export default {
             let quantity = dbData.inventory[idOfItem].quantity
             let itemInfo = await getItem(`${dbData.inventory[idOfItem].skin}`)
             let skinPrice = itemInfo.buff163.starting_at.price
-            let skinIcon = await market.getItemImage({
-                market_hash_name: skinName,
-                appid: 730
-            })
+            let skinIcon = dbData.inventory[idOfItem].icon
 
             if (quantityToSell > quantity) {
                 errorEmbed.setDescription(`You do not have **${quantityToSell}** of ${skinName}`)
@@ -76,40 +73,20 @@ export default {
 
             await dbData.save()
 
-            if (skinName.endsWith("Key")) {
-                let price = 2.5 * quantityToSell
+            let tempPrice = skinPrice * quantityToSell
+            let fixedPrice = parseFloat(tempPrice)
+            let price = fixedPrice.toFixed(2)
 
-                userData.balance += price
-                await userData.save()
+            userData.balance += fixedPrice
+            await userData.save()
 
-                const embed = new EmbedBuilder()
-                    .setTitle('Market')
-                    .setDescription(`You just sold your **${quantityToSell} ${skinName}** for **$${price}**`)
-                    .setColor('Green')
+            const embed = new EmbedBuilder()
+                .setTitle('Market')
+                .setDescription(`You just sold your **${quantityToSell} ${skinName}** for **$${price}**`)
+                .setThumbnail(`${skinIcon}`)
+                .setColor('Green')
 
-                    if (skinIcon != "No image available") {
-                        embed.setThumbnail(`${skinIcon}`)
-                    } else {
-                        embed.setThumbnail(`https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png`)
-                    }
-
-                return interaction.reply({ embeds: [embed] })
-            } else {
-                let tempPrice = skinPrice * quantityToSell
-                let fixedPrice = parseFloat(tempPrice)
-                let price = fixedPrice.toFixed(2)
-
-                userData.balance += fixedPrice
-                await userData.save()
-
-                const embed = new EmbedBuilder()
-                    .setTitle('Market')
-                    .setDescription(`You just sold your **${quantityToSell} ${skinName}** for **$${price}**`)
-                    .setThumbnail(`${skinIcon}`)
-                    .setColor('Green')
-
-                return interaction.reply({ embeds: [embed] })
-            }
+            return interaction.reply({ embeds: [embed] })
         }
     }
 };
