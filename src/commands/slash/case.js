@@ -1,27 +1,11 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
-import { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder, StringSelectMenuBuilder } from "discord.js";
+import { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } from "discord.js";
 import skinsData from '../../utils/skins.json' assert { type: "json" }
-import { SteamMarketParser, Currency } from 'steam-market-parser'
 import inventory from '../../utils/db/inventory.js'
 import User from '../../utils/db/users.js'
 import prettyMilliseconds from "pretty-ms";
 import getItem from '../../utils/functions/getItem.js'
-import getPrice from "../../utils/functions/getPrice.js";
 import giveXp from "../../utils/functions/giveXp.js";
-import SteamMarketFetcher from 'steam-market-fetcher';
-
-// const probabilities = {
-//     "Mil-spec": 0.7992327,
-//     "Restricted": 0.1598465,
-//     "Classified": 0.0319693,
-//     "Covert": 0.0063939,
-//     "Special Item": 0.0025575
-// };
-
-const market = new SteamMarketFetcher({
-    currency: 'USD',
-    format: 'json'
-});
 
 export default {
     data: new SlashCommandBuilder()
@@ -176,14 +160,6 @@ export default {
                             obtainedSkin.rarity === 'Special Item' ? 0xffd700 : 'Black')
             .setFooter({ text: `Automatically sold if you don't select keep in 10 seconds` })
             .setDescription(`You got **${finalSkin}**\n Price: $${skinPrice}`)
-
-        // if (skinPrice.median) {
-        //     embed.setDescription(`You got **${finalSkin}**\n Price: $${skinPrice.median}`)
-        // } else if (skinPrice.average) {
-        //     embed.setDescription(`You got **${finalSkin}**\n Price: $${skinPrice.average}`)
-        // } else {
-        //     embed.setDescription(`You got **${finalSkin}**\n Price: $${skinPrice}`)
-        // }
 
         if (userData.devMode) embed.setFooter({ text: `Automatically sold if you don't select keep in 10 seconds\n\n⚙️ Testing Mode - Chances might be different than normal` })
 
