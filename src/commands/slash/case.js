@@ -64,7 +64,11 @@ export default {
             user_id: interaction.user.id
         })
 
-        let keyIcon = skinsData.shop.skins[`${skinsData[caseName]['name']} Key`][0].icon
+        let keyIcon
+        if (!skinsData[caseName]['name'] == 'Operation Breakout Weapon Case') {
+            keyIcon = skinsData.shop.skins[`${skinsData[caseName]['name']} Key`][0].icon
+        } else {
+            keyIcon = skinsData.shop.skins['Operation Breakout Case Key'][0].icon
 
         userData.cooldowns.command = Date.now() + 3.5 * 1000
         await userData.save()
