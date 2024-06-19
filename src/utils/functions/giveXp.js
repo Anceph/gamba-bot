@@ -39,7 +39,7 @@ export default async function giveXp(user, userData, channelId, client) {
             .setTitle(`Rank Up!`)
             .setColor('Green')
             .setThumbnail(user.displayAvatarURL())
-            .setDescription(`Congratulations! You rank up from **${enum_ranks[currentRankName]} ${currentRankName}** to **${enum_ranks[newRankName]} ${newRankName}**!`)
+            .setDescription(`Congratulations! You ranked up from **${enum_ranks[currentRankName]} ${currentRankName}** to **${enum_ranks[newRankName]} ${newRankName}**!`)
 
         client.channels.cache.get(channelId).send({ embeds: [embed] })
     }
