@@ -10,13 +10,13 @@ import getPrice from "../../utils/functions/getPrice.js";
 import giveXp from "../../utils/functions/giveXp.js";
 import SteamMarketFetcher from 'steam-market-fetcher';
 
-const probabilities = {
-    "Mil-spec": 0.7992327,
-    "Restricted": 0.1598465,
-    "Classified": 0.0319693,
-    "Covert": 0.0063939,
-    "Special Item": 0.0025575
-};
+// const probabilities = {
+//     "Mil-spec": 0.7992327,
+//     "Restricted": 0.1598465,
+//     "Classified": 0.0319693,
+//     "Covert": 0.0063939,
+//     "Special Item": 0.0025575
+// };
 
 const market = new SteamMarketFetcher({
     currency: 'USD',
@@ -141,7 +141,25 @@ export default {
         await giveXp(user, userData, interaction.channelId, client)
         await userData.save()
 
-        let obtainedSkin = getRandomSkin(Skins)
+        let probabilities = {
+            "Mil-spec": 0.7992327,
+            "Restricted": 0.1598465,
+            "Classified": 0.0319693,
+            "Covert": 0.0063939,
+            "Special Item": 0.0025575
+        };
+
+        if (userData.devMode) {
+            probabilities = {
+                "Mil-spec": 0,
+                "Restricted": 0,
+                "Classified": 0,
+                "Covert": 30,
+                "Special Item": 70
+            }
+        }
+
+        let obtainedSkin = getRandomSkin(Skins, probabilities)
         const finalSkin = `${obtainedSkin.skin} (${obtainedSkin.condition})`
         console.log(finalSkin)
         let itemInfo = await getItem(finalSkin)
@@ -169,6 +187,8 @@ export default {
         // } else {
         //     embed.setDescription(`You got **${finalSkin}**\n Price: $${skinPrice}`)
         // }
+
+        if (userData.devMode) embed.setFooter({ text: `Automatically sold if you don't select keep in 10 seconds\n⚙️ Testing Mode` })
 
         if (skinIcon != "No image available") {
             embed.setThumbnail(`${skinIcon}`)
@@ -244,7 +264,7 @@ export default {
     }
 }
 
-function getRandomSkin(caseName) {
+function getRandomSkin(caseName, probabilities) {
     let rand = Math.random();
     let cumulativeProb = 0;
     for (let rarity in probabilities) {

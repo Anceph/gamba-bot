@@ -13,5 +13,6 @@ export default mongoose.model('User', new mongoose.Schema({
         daily: { type: Date },
         work: { type: Date },
         command: { type: Date }
-    }
+    },
+    devMode: { type: Boolean, default: false },
 }))
