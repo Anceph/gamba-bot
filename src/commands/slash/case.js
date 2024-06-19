@@ -1,27 +1,11 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
-import { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder, StringSelectMenuBuilder } from "discord.js";
+import { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } from "discord.js";
 import skinsData from '../../utils/skins.json' assert { type: "json" }
-import { SteamMarketParser, Currency } from 'steam-market-parser'
 import inventory from '../../utils/db/inventory.js'
 import User from '../../utils/db/users.js'
 import prettyMilliseconds from "pretty-ms";
 import getItem from '../../utils/functions/getItem.js'
-import getPrice from "../../utils/functions/getPrice.js";
 import giveXp from "../../utils/functions/giveXp.js";
-import SteamMarketFetcher from 'steam-market-fetcher';
-
-// const probabilities = {
-//     "Mil-spec": 0.7992327,
-//     "Restricted": 0.1598465,
-//     "Classified": 0.0319693,
-//     "Covert": 0.0063939,
-//     "Special Item": 0.0025575
-// };
-
-const market = new SteamMarketFetcher({
-    currency: 'USD',
-    format: 'json'
-});
 
 export default {
     data: new SlashCommandBuilder()
@@ -64,7 +48,12 @@ export default {
             user_id: interaction.user.id
         })
 
-        let keyIcon = skinsData.shop.skins[`${skinsData[caseName]['name']} Key`][0].icon
+        let keyIcon
+        if (!skinsData[caseName]['name'] == 'Operation Breakout Weapon Case') {
+            keyIcon = skinsData.shop.skins[`${skinsData[caseName]['name']} Key`][0].icon
+        } else {
+            keyIcon = skinsData.shop.skins['Operation Breakout Case Key'][0].icon
+        }
 
         userData.cooldowns.command = Date.now() + 3.5 * 1000
         await userData.save()
@@ -172,14 +161,6 @@ export default {
             .setFooter({ text: `Automatically sold if you don't select keep in 10 seconds` })
             .setDescription(`You got **${finalSkin}**\n Price: $${skinPrice}`)
 
-        // if (skinPrice.median) {
-        //     embed.setDescription(`You got **${finalSkin}**\n Price: $${skinPrice.median}`)
-        // } else if (skinPrice.average) {
-        //     embed.setDescription(`You got **${finalSkin}**\n Price: $${skinPrice.average}`)
-        // } else {
-        //     embed.setDescription(`You got **${finalSkin}**\n Price: $${skinPrice}`)
-        // }
-
         if (userData.devMode) embed.setFooter({ text: `Automatically sold if you don't select keep in 10 seconds\n\n⚙️ Testing Mode - Chances might be different than normal` })
 
         if (skinIcon) {
@@ -227,7 +208,7 @@ export default {
                         if (existingItem) {
                             existingItem.quantity += 1
                         } else {
-                            await dbData.inventory.push({ skin: finalSkin, quantity: 1, icon: skinIcon})
+                            await dbData.inventory.push({ skin: finalSkin, quantity: 1, icon: skinIcon })
                         }
                         await dbData.save()
                         await confirmation.update({
