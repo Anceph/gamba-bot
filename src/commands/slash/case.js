@@ -102,7 +102,7 @@ export default {
                 keyName = `${skinsData[caseName]['name']} Key`
             }
             const foundKey = dbData.inventory.some((item) => item.skin === keyName)
-            if (!foundKey) return interaction.reply({ embeds: [errorEmbed] })
+            if (!foundKey) return interaction.editReply({ embeds: [errorEmbed] })
             await dbData.save()
         }
 
