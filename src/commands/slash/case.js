@@ -161,6 +161,7 @@ export default {
         console.log(finalSkin)
         let itemInfo = await getItem(finalSkin)
         let skinPrice = itemInfo.buff163.starting_at.price
+        console.log(skinPrice)
         let skinIcon = await market.getItemImage({
             market_hash_name: finalSkin,
             appid: 730
