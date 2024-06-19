@@ -58,7 +58,12 @@ export default {
             let quantity = dbData.inventory[idOfItem].quantity
             let itemInfo = await getItem(`${dbData.inventory[idOfItem].skin}`)
             let skinPrice = itemInfo.buff163.starting_at.price
-            let skinIcon = dbData.inventory[idOfItem].icon
+            let skinIcon
+            if (dbData.inventory[idOfItem].icon) {
+                skinIcon = dbData.inventory[idOfItem].icon
+            } else {
+                skinIcon = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png"
+            }
 
             if (quantityToSell > quantity) {
                 errorEmbed.setDescription(`You do not have **${quantityToSell}** of ${skinName}`)
