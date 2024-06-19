@@ -48,7 +48,7 @@ export default {
         const userData = await User.findOne({ id: user.id }) || new User({ id: user.id })
         
         if (userData.cooldowns.command && userData.cooldowns.command > Date.now()) {
-            return interaction.editReply({
+            return interaction.reply({
                 embeds: [
                     embeds.setDescription(`⌛ Hold on there! You have to wait **${prettyMilliseconds(userData.cooldowns.command - Date.now(), { verbose: true, secondsDecimalDigits: 0 })}** for more **GAMBA**`)
                 ],
