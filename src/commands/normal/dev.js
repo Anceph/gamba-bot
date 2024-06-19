@@ -261,10 +261,10 @@ export default {
         }
 
         if (args[0] == "devmode") {
-            const data = await User.findOne({ id: args[1] })
+            const data = await User.findOne({ id: user.id })
             data.devMode = !data.devMode
             await data.save()
-            return message.reply(`Changed users.${args[1]}.devMode to ${data.devMode}`)
+            return message.reply(`Changed users.${user.id}.devMode to ${data.devMode}`)
         }
     }
 };
