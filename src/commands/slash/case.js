@@ -66,7 +66,7 @@ export default {
         const userData = await User.findOne({ id: user.id }) || new User({ id: user.id })
 
         if (userData.cooldowns.command && userData.cooldowns.command > Date.now()) {
-            return interaction.reply({
+            return interaction.editReply({
                 embeds: [
                     embeds.setDescription(`⌛ Hold on there! You have to wait **${prettyMilliseconds(userData.cooldowns.command - Date.now(), { verbose: true, secondsDecimalDigits: 0 })}** for more **GAMBA**`)
                 ],
@@ -154,13 +154,18 @@ export default {
                 "Mil-spec": 0,
                 "Restricted": 0,
                 "Classified": 0,
-                "Covert": 30,
-                "Special Item": 70
+                "Covert": 0,
+                "Special Item": 100
             }
         }
 
         let obtainedSkin = getRandomSkin(Skins, probabilities)
-        const finalSkin = `${obtainedSkin.skin} (${obtainedSkin.condition})`
+        let finalSkin = `${obtainedSkin.skin} (${obtainedSkin.condition})`
+
+        if (obtainedSkin.condition == undefined) {
+            finalSkin = `${obtainedSkin.skin}`
+        }
+
         console.log(finalSkin)
         let itemInfo = await getItem(finalSkin)
         let skinPrice = itemInfo.buff163.starting_at.price
@@ -188,7 +193,7 @@ export default {
         //     embed.setDescription(`You got **${finalSkin}**\n Price: $${skinPrice}`)
         // }
 
-        if (userData.devMode) embed.setFooter({ text: `Automatically sold if you don't select keep in 10 seconds\n⚙️ Testing Mode` })
+        if (userData.devMode) embed.setFooter({ text: `Automatically sold if you don't select keep in 10 seconds\n\n⚙️ Testing Mode - Chances might be different than normal` })
 
         if (skinIcon != "No image available") {
             embed.setThumbnail(`${skinIcon}`)

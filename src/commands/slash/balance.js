@@ -27,8 +27,6 @@ export default {
             embed.setTitle(`${user.username}'s balance`)
         }
 
-        if (userData.devMode) embed.setFooter({ text: '⚙️ Testing Mode' })
-
         return interaction.reply({ embeds: [embed] })
     }
 };

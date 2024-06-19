@@ -87,8 +87,6 @@ export default {
                     .setColor('Green')
                     .setThumbnail(`${skinIcon}`)
 
-                if (userData.devMode) embed.setFooter({ text: '⚙️ Testing Mode' })
-
                 return interaction.editReply({ content: '', embeds: [embed] })
             }
         }
